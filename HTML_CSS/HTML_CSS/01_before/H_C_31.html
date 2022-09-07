@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子的尺寸、轮廓、圆角</title>
+    <!-- outline box-sizing box-shadow -->
+    <style>
+        /* 
+            默认情况下，盒子可见框的大小由内容区，内边距和边框共同决定
+
+                box-sizing 用来设置盒子尺寸的计算方式（设置width和height的作用)
+                    可选值：
+                        content-box：默认值，宽度和高度用来设置内容区的大小
+                        border-box：宽度和高度用来设置整个盒子可见框的大小
+                            width 和 height 指的是内容区 和 内边距 和 边框的总大小
+        */
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            padding: 10px;
+            /* border: 10px red solid; */
+            /* 
+                outline 用来设置元素的轮廓，用法和border一样
+                轮廓和边框不同点，就是轮廓不会影响到可见框的大小
+            */
+            /* outline:10px red solid; */
+
+            /* 
+                box-shadow 用来设置元素的阴影效果，阴影不会影响页面的布局 
+                    第一个值 水平偏移量 设置阴影的水平位置 正值向右移动 负值向左移动
+                    第二个值 垂直偏移量 设置阴影的垂直位置 正值向下移动 负值
+                    第三个值 阴影的模糊半径
+                    第四个值 阴影的颜色
+            */
+            box-shadow: 10px 10px 20px red;
+           
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            padding: 10px;
+            /* 
+                border-radius：用来设置圆角 圆角设置的圆的半径大小
+
+                    四个值：左上 右上 右下 左下
+                    三个值：左上 右上/左下 右下
+                    两个值：左上/右下 右上/左下
+                    border-top-left-radius：
+                    border-top-right-radius：
+                    border-bottom-left-radius：
+                    border-bottom-right-radius：
+                        两个值不一样是为椭圆角    一样是为圆角
+            */
+            border-top-left-radius:50px 100px;
+            border-top-right-radius:50px 100px;
+            /* border-radius:10px 10px 10px 5px; */
+            /* border-radius: 50%;  */
+            box-sizing: border-box;
+            box-shadow: 10px -10px 20px rgb(21, 223, 223);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <br>
+    <div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="yes">样式的继承</title>
+    <style>
+        /* 
+            样式的继承：
+                我们为一个元素设置的样式同时也会应用到它的后代元素
+
+                继承是发生在祖先后代之间的
+
+                继承的设计是为了方便我们的开发，
+
+            注意：并不是所有的样式都会被继承
+                比如 背景相关的，布局相关等 这些样式都不会被继承
+        */
+        body{
+            font-size: 20px;
+        }
+        p{
+            color:yellowgreen;
+        }
+        div{
+            color: violet;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        i am p.
+        <span>
+            i span in p.
+        </span>
+    </p>
+    <span>i am span outside p.</span>
+
+    <div>
+        i am div.
+        <span>
+            i am span in div.
+            <em>i am em in span.</em>
+        </span>
+    </div>
+<div>
+    <code>
+        JavaScript
+           function Observe(){
+                console.log("Hello")
+            }
+        Observer()
+    </code>
+</div>
+</body>
+</html>

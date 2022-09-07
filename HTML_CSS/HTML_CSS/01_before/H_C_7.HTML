@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内联框架 音视频</title>
+
+</head>
+<body>
+    <!-- 
+
+        内联框架：用于向当前页面中引入一个其它页面
+            src 指定要引入的网页的路径
+            frameborder 指定内联框架的边框
+                0： 无
+                1： 有
+     -->
+    <iframe src="http://www.qq.com" with="800" frameborder="0"></iframe>
+
+
+    <!-- 
+        audio 标签用来向页面引入一个外部的音频文件
+            音视频文件引入时，默认情况下不允许用户自己控制播放停止
+
+            属性：
+                controls 是否允许用户控制播放
+                autoplay 音频文件是否自动播放
+                    虽然设置了该属性，但大部分浏览器不会自动播放音乐
+                loop 循环播放
+    -->
+    <!-- 除了通过src来指定外部文件的路径以外，还可以通过source来指定文件 -->
+    <audio src="../video/寒冰.webm" controls></audio>
+    <audio controls>
+        <!-- 对不起，您的浏览器不支持播放音频！请升级您的浏览器。 -->
+        <source src="../video/女枪.webm">
+
+        <embed src="../video/霞.webm" type="audio/mp3" width="300">
+    </audio>
+
+
+    <!-- 
+        video 标签用来向网页中引入视频文件
+     -->
+    <video controls>
+        <source src="../video/女枪.webm">
+
+        <embed src="../video/女枪.webm" type="video/mp4">
+    </video>
+</body>
+</html>

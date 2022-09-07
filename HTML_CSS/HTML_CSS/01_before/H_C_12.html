@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系选择器</title>
+    <style>
+        /* 
+            标签 *  选中标签下的所有元素
+        */
+        /* 
+            为div的子元素span设置一个字体颜色为红色
+
+            子元素选择器：
+                作用：选中指定父元素的指定子元素
+                语法：父元素 > 子元素 > ...
+        */
+
+        div > span{
+            color:orangered;
+        }
+
+        /* 
+            后代元素选择器：
+                做用：选中指定元素内的指定后代元素
+                语法：祖先 后代 ...
+        */
+        div span{
+            color:blueviolet;
+        }
+
+        /* 
+            选择下一个兄弟(紧挨着的元素）：
+                语法：前一个 + 下一个
+            选择下边所有的兄弟元素：
+                语法：兄弟 ~ 兄弟
+        */
+
+        p + span{
+            /* p元素后面的第一个span元素，再怎么 + 也只能选中最后+的一个  
+               如果有多个p元素后都跟的是span 那会选中所有span
+            
+            */
+            color:red;
+        }
+
+        p ~ span{
+            /* p元素后面的所有兄弟span（不包括p） */
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        父元素
+            直接包含子元素的元素叫做父元素
+        子元素
+            直接被父元素包含的元素是子元素
+        祖先元素
+            直接或间接包含后代元素的元素叫做祖先元素
+            一个元素的父元素也是它的祖先元素
+        后代元素
+            直接或间接被祖先元素包含的元素叫做祖先元素
+            子元素也是后代元素
+        兄弟元素
+            拥有相同父元素的元素是兄弟元素
+     -->
+    <div>
+        i am div during the p element.
+
+        <p>
+            i am p element during the div.
+            <span>i am span during the p.</span>
+        </p>
+        <span>i am span during the div.</span>
+    </div>
+</body>
+</html>

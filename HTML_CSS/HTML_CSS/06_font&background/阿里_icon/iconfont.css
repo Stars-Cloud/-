@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3402808 */
+  src: url('iconfont.woff2?t=1652615846841') format('woff2'),
+       url('iconfont.woff?t=1652615846841') format('woff'),
+       url('iconfont.ttf?t=1652615846841') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bianji:before {
+  content: "\e8ac";
+}
+
+.icon-bangzhu:before {
+  content: "\e8ad";
+}
+
+.icon-dianhua:before {
+  content: "\e8ae";
+}
+
+.icon-dianzan:before {
+  content: "\e8af";
+}
+
+.icon-dingwei:before {
+  content: "\e8b0";
+}
+
+.icon-ditu:before {
+  content: "\e8b1";
+}
+
+.icon-dingdan:before {
+  content: "\e8b2";
+}
+
+.icon-nan:before {
+  content: "\e8b3";
+}
+
+.icon-nv:before {
+  content: "\e8b4";
+}
+
+.icon-pengyouquan:before {
+  content: "\e8b5";
+}
+
+.icon-saoyisao:before {
+  content: "\e8b6";
+}
+
+.icon-pinglun:before {
+  content: "\e8b7";
+}
+
+.icon-shanchu:before {
+  content: "\e8b8";
+}
+
+.icon-shezhi:before {
+  content: "\e8b9";
+}
+
+.icon-shoucang:before {
+  content: "\e8ba";
+}
+
+.icon-shouji:before {
+  content: "\e8bb";
+}
+
+.icon-wode:before {
+  content: "\e8bc";
+}
+
+.icon-weixin:before {
+  content: "\e8bd";
+}
+
+.icon-wodeguanzhu:before {
+  content: "\e8be";
+}
+

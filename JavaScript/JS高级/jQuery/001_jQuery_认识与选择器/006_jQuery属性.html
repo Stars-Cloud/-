@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性</title>
+</head>
+<body>
+<!--
+    属性
+        操作标签的属性，标签体文本
+        attr（name）/ attr(name,value) :读写非布尔值的标签属性
+        prop（name）/ prop(name,value) :读写布尔值的标签属性
+        removeAttr(name)/removeProp(name):删除属性
+        addClass(classValue):添加class
+        removeClass(classValue):移除指定的class
+        val() / val(value):读写标签的value
+        html() / html(htmlString): 读写标签体文本
+-->
+<div id="div1" class="box" title="one">div.div1.box</div>
+<div id="div2" class="box" title="two">div.div2.box</div>
+<div id="div3">div3</div>
+<span class="box">span.box</span>
+<br>
+<ul>
+    <li>AAA</li>
+    <li title="hello" class="box2">BBB</li>
+    <li class="box">CCC</li>
+    <li title="hello">DDD</li>
+    <li title="two"><span>BBB</span></li>
+</ul>
+
+<input type="text" name="username" value="guiguiClass">
+<br>
+<input type="checkbox">
+<input type="checkbox">
+<br>
+<button>select</button>
+<button>not select</button>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<script type="text/javascript">
+    console.log( $('div:first').attr('title')) //读取title属性的值
+    $('div').attr('name','Fan') //设置一个name属性==Fan
+    $('div').removeAttr('title')  // 移除一个属性
+    $('div').attr('class', 'FanClass') // 设置class属性==FanClass
+    $('div').addClass('abc') //添加一个class==abc
+    $('div').removeClass('abc') // 移除类名为abc
+    console.log($('li:last').html()) // 最后一个li元素的文本
+    $('li:first').html('<h1>MMMMMMMM</h1>') // 给第一个li的文本设置为<h1>MMMMMMMM</h1>
+    console.log($(':text').val()) //得到输入框的value值
+    $(':text').val('atguigu') // 设置输入框的内容为atguigu
+    // 设置按钮全选，全不选
+    /*
+        attr():操作属性值为非布尔值的属性
+        prop():专门操作属性值为布尔值的属性
+    */
+    let $checkboxs = $(':checkbox')
+    $('button:first').click(function(){
+        $checkboxs.prop('checked',true)
+    })
+    $('button:last').click(function(){
+        $checkboxs.prop('checked',false)
+    })
+</script>
+</body>
+</html>

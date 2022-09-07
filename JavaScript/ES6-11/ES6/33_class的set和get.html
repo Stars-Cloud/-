@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class的get和set</title>
+</head>
+<body>
+<script type="text/javascript">
+    class Phone{
+        get price(){
+            console.log('this attr is read: ')
+            return this
+        }
+        set price(newData){
+            console.log('this attr is writed')
+        }
+    }
+
+    let s = new Phone()
+
+    console.log(s.price)
+    s.price = 'free'
+    console.log(s.price)
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        全选练习
+        在事件的响应函数中,响应函数是给谁绑定的,this就是谁
+    </title>
+    <script>
+        window.onload=function(){
+            
+            // all select function
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                var items = document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = true;
+                }
+                checkedAllBox.checked = true;
+            };
+
+            // not all select function
+            var checkedNotBtn = document.getElementById("checkedNotBtn");
+            checkedNotBtn.onclick = function(){
+                var items = document.getElementsByName("items");
+                for(var i=0; i<items.length; i++){
+                    items[i].checked = false;
+                }
+                checkedAllBox.checked = false;
+                
+            };
+
+            // reverse select function
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick = function(){
+                var items = document.getElementsByName("items");
+                checkedAllBox.checked = true;
+                for(var i=0; i<items.length; i++){
+                    items[i].checked = !items[i].checked;
+                    if(!items[i].checked){
+                        checkedAllBox.checked = false;
+                    }
+                }
+            };
+
+            // submit function
+            var sendBtn =  document.getElementById("sendBtn");
+            sendBtn.onclick = function(){
+                var items = document.getElementsByName("items");
+                for (var i=0; i<items.length; i++){
+                    if(items[i].checked){
+                        alert("You select "+items[i].value);
+                    }
+                }
+            };
+
+            //  all / not all
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            checkedAllBox.onclick = function(){
+                var items = document.getElementsByName("items");
+                for(var i=0; i<items.length; i++){
+                    if(checkedAllBox.checked){
+                        items[i].checked = true;
+                    }
+                    else{
+                        items[i].checked = false;
+                    }
+                }
+            };
+
+            var items = document.getElementsByName("items");
+            for(var i=0; i<items.length; i++){
+                items[i].onclick = function(){
+                    checkedAllBox.checked = true;
+                    for(var j=0; j<items.length; j++){
+                        if(items[j].checked == false){
+                            checkedAllBox.checked = false;
+                            break;
+                        }
+                    }
+                };
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        <legend>Choose your interests</legend>
+        What are you like sports？<input type="checkbox" id="checkedAllBox" />all select / not all select
+
+        <br />
+        <input type="checkbox" name="items" value="Socer">Socer
+        <input type="checkbox" name="items" value="Basketball">Basketball
+        <input type="checkbox" name="items" value="Badminton">Badminton
+        <input type="checkbox" name="items" value="Ping-Pong">Ping-Pong
+    
+        <br>
+        <input type="button" id="checkedAllBtn" value="all select">
+        <input type="button" id="checkedNotBtn" value="not all select">
+        <input type="button" id="checkedRevBtn" value="reverse select">
+        <input type="button" id="sendBtn" value="submit">
+    </form>
+
+</body>
+</html>

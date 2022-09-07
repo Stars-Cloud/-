@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增删改</title>
+    append() appendTo()
+    prepend() prependTo()
+    before()
+    after()
+    replaceAll('Selector')
+    replaceWith('Element')
+    $ele.empty()  delete all expect $ele
+    $ele.remove() delete all include $ele  really delete
+</head>
+<body>
+<ul id="ul1">
+    <li>AAA</li>
+    <li title="hello">BBB</li>
+    <li class="box">CCC</li>
+    <li title="hello">DDD</li>
+    <li title="two">EEE</li>
+    <li>FFF</li>
+</ul>
+<br>
+<ul id="ul2">
+    <li>aaa</li>
+    <li title="hello">bbb</li>
+    <li class="box">ccc</li>
+    <li title="hello">ddd</li>
+    <li title="two">eee</li>
+</ul>
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    let $ul1 = $('#ul1')
+//  向id为ul1的ul下添加一个span（最后）append appendTo
+$ul1.append('<span>append() add span</span>')
+$('<br><span>appendTo() add span</span>').appendTo($ul1)
+//  向id为ul1的ul下添加一个span（最前）prepend prependTo
+$ul1.prepend('<span>prepend() add span</span>')
+//  在id为ul1的ul下的li（title为hello）的前面添加span
+$('#ul1>li[title=hello]').before('<span>before() add span</span>')
+//  在id为ul1的ul下的li（title为hello）的后面添加span
+$('#ul1>li[title=hello]').after('<span>after() add span</span>')
+//  将在id为ul2的ul下的li（title为hello）全部替换为p
+// $('#ul2>li[title=hello]').replaceAll('Selector')
+$('#ul2>li[title=hello]').replaceWith('<p>replaceWith() add p</p>')
+//  移除id为ul2的ul下的所有li
+// $('#ul2>li').empty()
+$('#ul2>li').remove()
+</script>
+</body>
+</html>

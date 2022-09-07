@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的静态成员</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Phone() {
+
+    }
+    Phone.name = 'shouji'
+    Phone.change = function(){
+        console.log('i can change world')
+    }
+    Phone.prototype.size = '5.5inch'
+
+    let nokia = new Phone()
+    console.log(nokia.size) // 5.5inch
+    console.log(nokia.name) // undefined
+    nokia.change() // 会报错
+
+    /*
+        name属性和change方法 在nokia实例对象身上没有,nokia实例对象只能拥有Phone构造函数原型上的属性和方法
+        向name和change这样只有Phone构造函数所拥有而实例对象没有的属性和方法称为静态属性\静态方法
+    */
+    class Phone{
+        static name = 'shouji'
+        static change(){
+            console.log('i can change world')
+        }
+    }
+    let p = new Phone()
+    console.log(p.name)
+    console.log(Phone.name)
+</script>
+</body>
+</html>

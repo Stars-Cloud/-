@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的嵌套</title>
+    <style>
+        body{
+            background: skyblue;
+        }
+        .box{
+            width: 450px;
+            height: 40px;
+            margin:0 auto;
+            background: rgba(0, 255, 42, 0.3);
+        }
+        .box>div{
+            box-sizing: border-box;
+            width: 100px;
+            height: 40px;
+            padding-left: 39px;
+            line-height: 40px;
+            font-size: 20px;
+            border: 1px purple solid;
+            margin: 0 10px;
+            float: left;
+        }
+        .box>div:not(:last-child){
+            margin-right: 0px;
+
+        }
+        .box:last-child{
+
+        }
+        .box>div:hover{
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+<!--    <navegation></navegation>-->
+<!--    <br>-->
+<!--    <navegation></navegation>-->
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const nav = Vue.extend({
+        template:`
+            <div class="box">
+                <div class="box1">1</div>
+                <div class="box2">2</div>
+                <div class="box3">3</div>
+                <div class="box4">4</div>
+            </div>
+        `,
+    })
+    const bow = Vue.extend({
+        template:`
+            <navegation></navegation>
+        `,
+        components:{
+            navegation:nav,
+        }
+    })
+    const asideLeft = Vue.extend({
+        template:`
+            <div>
+                <aside style="width: 200px;height: 500px;background: red;float:left"></aside>
+            </div>
+        `,
+    })
+    const asideRight = Vue.extend({
+        template:`
+            <div>
+                <aside style="width: 200px;height: 500px;background: red;float:right"></aside>
+            </div>
+        `,
+    })
+    const app = Vue.extend({
+        template:`
+            <div>
+                <Myaside></Myaside>
+                <MybowLeft></MybowLeft>
+                <MybowRight></MybowRight>
+            </div>
+        `,
+        components:{
+            Myaside:bow,
+            MybowLeft:asideLeft,
+            MybowRight:asideRight
+        }
+    })
+    const vm = new Vue({
+        template:`<app></app>`,
+        el:'#root',
+        data:{
+
+        },
+        components:{
+            app,
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的遍历
+
+            __proto__ 是对象的属性
+            prototype 是函数的属性
+    </title>>
+    <script>
+
+        function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+          
+        }
+        //修改Person原型的tostring
+        Person.prototype.ace = function(a, b, c){
+            // return "Person[name="+this.name+",age="+this.age+"]";
+            return "Hello"
+        }
+        // alert(Person.prototype.constructor == Person);
+
+        function getAdult(arr){
+            var newArr = [];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].age >= 18){
+                    newArr.push(arr[i].name);
+                }
+            }
+            return newArr;
+        }
+
+        
+        var person1 = {};
+        var person2 = new Person("猪八戒",28);
+        var person3 = new Person("红孩儿",8);
+        var person4 = new Person("蜘蛛精",16);
+        var person5 = new Person("二郎神",38);
+
+        var perArr = [person1, person2, person3, person4, person5];
+
+        // console.log(perArr);
+        // console.log(perArr[0].age);
+
+        // console.log(getAdult(perArr));
+        // console.log(person1.ace());
+        // console.log(Object.prototype.hasOwnProperty(toString));
+        // // console.log(Person.__proto__.__proto__.hasOwnProperty(toString));
+        // console.log(person1.__proto__.__proto__.hasOwnProperty(toString));
+        var arr = [];
+        console.log(arr);
+        console.log(Person.prototype.__proto__ == window.Object.prototype);
+        // Person.prototype 相当于 person1(函数的prototype相当于一个对象的实例)
+        // person1.__proto__ == window.Object.prototype == Person.prototype.__proto__
+        // window.Object 是一个函数类型
+        console.log(window.Object.prototype);
+        console.log(person1.__proto__)
+        console.log(person1.__proto__ == window.Object.prototype);
+        console.log(typeof window.Object);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

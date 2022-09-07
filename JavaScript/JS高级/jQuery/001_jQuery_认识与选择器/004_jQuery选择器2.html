@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器2</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<!--
+    表单选择器
+        1）表单
+            :input
+            :text
+            :checkbox
+            :radio
+            :checked:选中的
+        2）表单对象属性
+-->
+<form>
+    user:<input type="text"><br>
+    password:<input type="password"><br>
+    habby:
+    <input type="checkbox" checked="checked">basketball
+    <input type="checkbox" checked="checked">soccer
+    <input type="checkbox" checked="checked">badminton<br>
+    gender:
+    <input type="radio" name="sex" value="male">male
+    <input type="radio" name="sex" value="female">female<br>
+    mile:<input type="text" name="email" disabled="disabled"><br>
+    address:
+    <select>
+        <option value="1">BeiJing</option>
+        <option value="2" selected="selected">TianJing</option>
+        <option value="3">HeBei</option>
+    </select>
+    <input type="submit" value="submit">
+</form>
+<script type="text/javascript">
+    // 选择不可用的文本输入框
+    $(':text:disabled').css('background','red')
+    // 显示选择爱好的个数
+    console.log($(':checkbox:checked').length)
+    // 显示选择的城市名称
+    $(':submit').click(function(){
+        console.log(this)
+        let city = $('select>option:selected').html() // 选中option中的文本
+        // let city = $('select').val() // 选中option的value值
+        console.log(city)
+    })
+</script>
+</body>
+</html>

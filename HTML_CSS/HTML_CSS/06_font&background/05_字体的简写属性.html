@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体的简写属性</title>
+    <style>
+/*  对于字体的简写，不写不等于没有，只不过是使用默认值，省略会覆盖掉前面的样式
+    font 可以设置字体相关的所有属性
+        语法：
+            font：字体大小/行高 字体族
+            行高可以省略不写 如果不写使用默认值
+
+    italic 斜体
+    bold 加粗
+
+    font-weight
+        可选值：
+            normal 默认值 不加粗
+            bold 加粗
+            100-900 九个级别（没什么用）
+
+    font-style
+        可选值：
+            normal 正常的
+            italic 斜体
+*/
+        div{
+            font:italic bold 50px/2 'Times New Roman',Times,serif;
+        /*    font-weight 字重 字体的加粗*/
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div>今天天气真不错</div>
+</body>
+</html>

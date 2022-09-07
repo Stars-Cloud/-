@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02分析生命周期</title>
+</head>
+<body>
+<div id="root">
+    <h3>n:{{n}}</h3>
+    <button @click="add">add n</button>
+    <br>
+    <button @click="bye">destroy</button>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            n:1,
+        },
+        methods:{
+            add:function () {
+                console.log('add')
+                this.n++
+            },
+            bye:function(){
+                console.log('bye')
+                this.$destroy()
+            }
+        },
+
+        // 初始化流程
+        beforeCreate(){
+            console.log('beforeCreate')
+            // console.log(this)
+            // debugger
+        },
+        created(){
+            console.log('created')
+            // console.log(this)
+            // debugger
+        },
+        beforeMount(){
+            console.log('beforeMount')
+            // console.log(this)
+            // debugger
+        },
+        mounted(){
+            console.log('mounted')
+            // console.log(this)
+            // debugger
+        },
+
+        // 更新流程
+        beforeUpdate(){
+            console.log('beforeUpdate')
+            // console.log(this.n)
+            // debugger
+        },
+        updated(){
+            console.log('undated')
+            // console.log(this.n)
+            // debugger
+        },
+
+        // 销毁流程
+        beforeDestroy(){
+            console.log('beforeDestroy')
+            this.add()
+        },
+        destroy(){
+            console.log('destroy')
+        }
+    })
+</script>
+</body>
+</html>

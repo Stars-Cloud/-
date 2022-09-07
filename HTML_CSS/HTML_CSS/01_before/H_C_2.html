@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语义化标签</title>
+</head>
+<body>
+    <!-- 
+        在网页中HTML专门用来负责网页的结构
+            所以使用html标签时，应该关注的是标签的语义，而不是它的样式
+        
+        标题标签：
+            h1~h6 一共有六级标题
+            从h1~h6重要性递减，h1最重要
+            h1在网页中的重要性仅次于title标签，一般情况下页面中只会有一个h1
+            一般情况下标题标签只会使用到h1~h3
+        在页面中独占一行的元素称为块元素（block element）
+     -->
+     <h1>一级标题</h1>
+     <h2>二级标题</h2>
+     <h3>三级标题</h3>
+     <h4>四级标题</h4>
+     <h5>五级标题</h5>
+     <h6>六级标题</h6>
+
+     <!-- p 标签表示页面中的一个段落
+          p 也是一个块元素
+    -->
+    <p>(p标签) p标签中的内容就表示一个段落</p>
+
+
+    <!-- hgroup 标签用来为标题分组，可以将一组相关的标题同时放入到hggroup
+    -->
+    <hgroup>
+        <h1>登高</h1>
+        <h2>杜甫</h2>
+        <h3>(hgroup标签)</h3>
+    </hgroup>
+
+
+    <!-- em 标签用于表示语音、语调的一个加重 
+         在页面中不会独占一行的元素称为行内元素（inline element）
+    -->
+    <p>(em标签) I <em>love</em> you </p>
+    
+
+    <!-- strong表示强调，重要内容 -->
+    <p>(strong标签) I <strong>love</strong> you </p>
+
+
+    <!-- blockquote 表示一个长应用 -->
+    <p>(blockquote标签) LuXun says: <blockquote>Where you want to go , it had been crowded in advance.</blockquote></p>
+
+
+    <!-- q 表示一个短引用 -->
+    <p>(q标签) LuXun says: <q>Where you want to go ,  it had been crowded in advance</q></p>
+
+
+    <!-- br 表示页面中的换行 -->
+    
+    <!-- i 标签 表示斜体 -->
+    <p>(i标签) I looked at it and thought <i>This can't be real!</i></p>
+
+
+    <!-- b 标签 标记重要的单词，相当于加粗字体，不过不建议使用b标签加粗字体，应该使用strong或CSS中的font-weight -->
+    <p>(b标签) The two most popular science courses offered by the school are <b class="term">chemistry</b> (the study of chemicals and the composition of substances) and <b class="term">physics</b> (the study of the nature and properties of matter and energy).</p>
+
+
+    <!-- s 删除文字，在文字上面画线 -->
+    <p>(s标签)<s>There will be a few tickets available at the box office tonight.</s></p>
+</body>
+
+</html>

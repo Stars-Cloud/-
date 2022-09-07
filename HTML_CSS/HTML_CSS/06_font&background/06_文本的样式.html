@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本的样式</title>
+    <style>
+        div{
+            width: 800px;
+            border: 1px red solid;
+        /*    text-align 文本的水平对齐
+                    可选值：
+                        left 左对齐
+                        right 右对齐
+                        center 居中对齐
+                        justify 两端对齐
+        */
+            /*text-align: left;*/
+            font-size: 50px;
+        }
+        span{
+            font-size: 20px;
+            border: 1px blue solid;
+            /*
+                vertical-align 设置元素垂直对齐方式
+                    可选值：
+                        baseline 默认值 基线对齐
+                        top 顶部对齐
+                        bottom 底部对齐
+                        middle 居中对齐
+            */
+            /*vertical-align: baseline;*/
+            vertical-align: 10px;
+        }
+        p{
+            outline: 1px red solid;
+        }
+        img{
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div>
+    今天天气helloyx<span>真不错</span>
+</div>
+<!--lorem 生成默认文本-->
+<!--<div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis dolorem eligendi error hic iste libero minima modi molestiae nam neque pariatur placeat quisquam ratione reprehenderit, sit tenetur voluptas. Soluta.
+</div>-->
+<p>
+    <img style="width: 300px;height: 400px;" src="../img/樱花庄的宠物女孩-gigapixel-scale-2x.png" alt="image">
+</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollTop , setting scrollTop scrollLeft</title>
+    <style>
+        div{
+            width:100px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发
+    Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发
+    Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发
+    Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发
+    Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发Python 全栈开发
+</div>
+<br>
+<button id="btn1">get scrollTop</button>
+<button id="btn2">set scrollTop</button>
+
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('#btn1').click(function(){
+        console.log($('div').scrollTop())
+        console.log($('body').scrollTop()+$('html').scrollTop()) // 兼容IE和chrome
+    })
+    $('#btn2').click(function(){
+        $('div').scrollTop(200)
+        $('html,body').scrollTop(10)
+    })
+</script>
+</body>
+</html>

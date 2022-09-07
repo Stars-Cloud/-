@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>总结生命周期</title>
+</head>
+<body>
+<!--
+    常用的生命周期钩子:
+        1.mounted:发送Ajax请求,启动定时器,绑定自定义事件,订阅消息等(初始化操作)
+        2.beforeDestroy:清除定时器,解绑自定义事件,取消订阅消息等(收尾工作)
+
+    关于销毁Vue实例
+        1.销毁后借助Vue开发者工具看不到任何信息
+        2.销毁后自定义事件会失效,但原生DOM事件依然有效
+        ３.一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了
+-->
+<div id="root">
+    <h2 v-bind:style="{opacity:opacity}">Welcome coming Vue</h2>
+    <button @click="opacity = 1">set opacity</button>
+    <button @click="stop">stop</button>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            opacity:1,
+        },
+        methods:{
+            stop(){
+                // clearInterval(this.timer)
+                this.$destroy()
+            }
+        },
+        // Vue完成模板的解析并把初始的真实的DOM元素放入页面后(挂在完毕)调用mounted
+        mounted(){
+            this.timer = setInterval(function(){
+                vm.opacity = vm.opacity - 0.01
+                if(vm.opacity <= 0){
+                    vm.opacity = 1
+                }
+            }, 30)
+        },
+        beforeDestroy() {
+            console.log('vm will be killed')
+            clearInterval(this.timer)
+        }
+    })
+
+</script>
+</body>
+</html>

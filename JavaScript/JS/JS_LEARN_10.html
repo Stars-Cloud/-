@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+
+        /*
+            垃圾回收
+                -程序运行过程中会产生垃圾，这些垃圾积攒过多会导致程序运行速度过慢
+                -所以我们需要一个垃圾回收的机制
+
+                -当一个对象没有任何变量或属性对它进行引用，此时我们将永远无法操作该对象
+                    此时这种对象就是一个垃圾，这种对象过多会占用大量内存空间，导致程序运行过慢
+                    必须进行清理
+            在JS中拥有自动的垃圾回收机制，会自动将这些垃圾对象从内存中销毁，
+            我们需要做的只是要将不再使用的对象设置null即可
+        */
+
+
+        /*
+        数组（Array） 也是一个对象  
+        数组中的元素可以是任意的数据类型，可以是对象、函数
+        */
+
+        var arr = new Array();
+        var arr1 = [];
+        console.log(arr.constructor);
+        // console.log(typeof arr);
+       
+
+        // push() 向数组的末尾添加一个或多个元素，并返回数组的新长度值
+        var pushReturn = arr1.push(1,2,3,3);
+        console.log(arr1);
+        console.log(pushReturn);
+        // pop() 删除数组的最后一个元素,并返回删除的数据
+        var popReturn = arr1.pop();
+        console.log(arr1);
+        console.log(popReturn);
+        // unshift() 向数组开头添加一个或多个元素，并返回新的数组长度
+        var unshiftReturn = arr1.unshift(5);
+        console.log(arr1);
+        console.log(unshiftReturn);
+        // shift() 删除数组的第一个元素，并将被删除的元素作为返回值返回
+        var shiftReturn = arr1.shift();
+        console.log(arr1);
+        console.log(shiftReturn);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

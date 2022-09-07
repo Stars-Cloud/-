@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_对象</title>
+    <script>
+
+     /*
+     使用new关键字调用的函数，是构造函数的constructor
+     构造函数是专门用来创建对象的函数
+     */   
+
+     var obj = new Object()
+     // 想对象中添加属性
+     obj.name = '孙悟空';
+     //console.log(obj);
+     obj.sex = '男';
+     obj.age = 20;
+     //console.log(obj);
+     // 修改对象的属性
+     obj.age = 21;
+     //console.log(obj);
+     // 删除对象的一个属性
+     delete obj.sex;
+     console.log(obj);
+     // 对象['属性名'] = 属性值
+     // 这种方法操作形式，更加的灵活，可以直接传递一个变量。
+     /*in 运算符 检查一个对象中是否含有指定的属性*/
+     console.log('sex' in obj);
+
+     var obj2 = {
+         name:'猪八戒',
+         age :1124,
+         sex:'男',
+         test:{name:'沙和尚'}
+     };
+     console.log(obj2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

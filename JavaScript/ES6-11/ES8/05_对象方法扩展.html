@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象方法扩展</title>
+</head>
+<body>
+<script type="text/javascript">
+    const school={
+        name:'xike',
+        cities:['临潼','秦汉','雁塔']
+    }
+    console.log(Object.keys(school))
+    console.log(Object.values(school))
+    console.log(Object.entries(school)) // 这样的结果方便创建一个map
+
+    const m =new Map(Object.entries(school))
+    console.log(m.get('cities'))
+    console.log('--------------------------------------------')
+    // 对象属性的描述对象
+    console.log(Object.getOwnPropertyDescriptors(school))
+</script>
+</body>
+</html>

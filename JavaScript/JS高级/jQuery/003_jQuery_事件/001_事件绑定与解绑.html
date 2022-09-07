@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定与解绑</title>
+<!--
+    1.事件绑定（2种）
+        eventName（function（）{}）
+        on（'eventName'，function（）{}）
+        有缺点：
+            eventName：编码方便，但只能加一个监听，且有的事件监听不支持
+            on：编码不方便，可以添加多个监听，且更透明
+    2.事件解绑：
+        off（event Name）
+    3.事件的坐标
+        event.clientX, event.clientY    相对于可见框的左上角
+        event.pageX, event.pageY    相对于页面的左上角
+        event.offsetX, event.offsetY    相对于事件元素左上角
+    4.事件相关处理
+        停止事件冒泡:event.stopPropagation()
+        阻止事件默认行为：event.preventDefault()
+-->
+    <style>
+        *{
+            margin: 0px;
+        }
+        div.div1{
+            box-sizing: border-box;
+            position: absolute;
+            width:200px;
+            height:200px;
+            top:20px;
+            left:10px;
+            background-color: skyblue;
+            /*padding-top: 50px;*/
+        }
+        div.div1 div.div2{
+            position: absolute;
+            width:100px;
+            height:100px;
+            top:50px;
+            background-color: red;
+
+        }
+        div.div3{
+            position: absolute;
+            top:250px;
+        }
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        outer div
+        <div class="div2">inner div</div>
+    </div>
+    <br>
+    <div class="div3">
+        <button id="btn1">取消绑定所有事件</button>
+        <button id="btn2">取消绑定mouseover事件</button>
+        <button id="btn3">测试事件坐标</button>
+        <a href="www.baidu.com">百度一下</a>
+    </div>
+
+    <script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /*
+            // 给div1绑定点击监听（两种方法）
+            $('.div1').click(function(){
+                console.log('click out')
+            })
+            $('.div1').on('click',function(){
+                console.log('on click out')
+            })
+        */
+       /*
+           //给div2绑定鼠标移入和移除的事件监听（用三种方法绑定）
+            $('.div2')
+            .on('mouseenter',function(){
+                console.log('mouse enter')
+            })
+            .on('mouseleave',function(){
+                console.log('mouse leave')
+            })
+
+            $('.div2').hover(function(){
+                console.log('mouse enter')
+            },function(){
+                console.log('mouse leave')
+            })
+       */
+        /*
+            //点击btn1接触.div1上的所有事件监听
+            $('#btn1').click(function(){
+                $('.div2').off()
+            })
+        */
+        /*
+            // 点击btn2解除div2上的mouseenter事件
+            $('#btn2').click(function(){
+                $('.div2').off('mouseenter')
+            })
+        */
+        /*
+            //点击btn3得到事件坐标
+            $('#btn3').click(function(event){ // 事件对象
+                console.log(event.offsetX,event.offsetY) //原点为事件元素的左上角
+                console.log(event.clientX,event.clientY) //原点为窗口的左上角
+                console.log(event.pageX,event.pageY) // 原点为页面的左上角
+            })
+        */
+        /*
+            //点击div2区域，外部点击监听不响应
+            $('.div2').click(function(event){
+                console.log('click inner')
+
+                event.stopPropagation()
+            })
+        */
+        /*
+            //点击链接，如果当前时间是偶数不跳转
+        */
+        $('a').click(function(event){
+            if(Date.now()%2===0){
+                event.preventDefault()
+            }
+        })
+    </script>
+</body>
+</html>

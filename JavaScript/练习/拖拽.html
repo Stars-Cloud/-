@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拖拽</title>
+		<script type="text/javascript">
+			window.onload = () =>{
+				const drag = function(obj){
+					/*
+						拖拽box1元素
+							拖拽的流程：
+								1.当鼠标在被拖拽元素上按下时，开始拖拽（onmousedown）
+								2.当鼠标移动时被拖拽元素跟随鼠标移动（onmousemove）
+								3.当鼠标松开时，被拖拽元素固定在当前位置（onmouseup）
+					*/
+								   
+					
+					obj .onmousedown = (event) => {
+						// alert("鼠标按下，开始拖拽~");
+						/*为document绑定一个onmousemove事件*/
+						obj.setCapture && obj.setCapture();
+						// div的偏移量： 鼠标.clentX - 元素.offsetLeft
+						//               mouse.clentY - element.offsetLeft
+						event = event || window.event;
+						let div_left = event.clientX - obj.offsetLeft;
+						let div_top = event.clientY - obj.offsetTop;
+						
+						
+						document.onmousemove = (event) => {
+							event = event || window.event;
+							
+							// 获取鼠标的坐标
+							let left = event.clientX-div_left;
+							let top = event.clientY-div_top;
+							
+							let scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+							let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+							
+							// 修改box的位置，使之跟随鼠标移动
+							obj.style.left = left+scrollLeft+"px";
+							obj.style.top = top+scrollTop+"px";
+						};
+						
+						
+						
+						/* 当鼠标松开时，被拖拽元素固定在当前位置
+										   但是要怎么操作？ 能移动是该对象有onmousemove方法
+										   只需要使onmousemove这个事件结束，可以使之停下
+										*/
+						/*
+							给box绑定onmouseup事件会有bug，当鼠标停在别的元素上时
+						    松开鼠标，box不会停下，因为这是鼠标的对象不是box，而是box2
+							松开鼠标不能触发box.onmouseup事件，所以还是要绑定给document
+						*/
+						document.onmouseup = function(){
+							document.onmousemove = null;
+							document.onmouseup = null;
+							
+							obj.releaseCapture() && box.releaseCapture();
+							
+							obj.releaseCapture();
+							// alert("loose");
+						};
+						
+						/*
+							当我们拖拽一个网页的内容时，浏览器会默认去搜索引擎中搜索内容
+							此时会导致拖拽功能异常，这个是浏览器提供的默认行为
+							如果不希望发生这个行为，怎可以通过return false来取消默认行为
+							
+							但是对IE8不起作用
+						*/
+						return false;
+						
+					};
+					
+					/*
+						setCapture() releaseCapture()
+							只有IE支持，但是在火狐中调用不会报错
+							而如果在chorme中会报错
+					*/
+				};
+				
+				let box = document.getElementById("box");
+				let box0 = document.getElementById("box0");
+				
+				drag(box);
+				drag(box0);
+				
+				
+			};
+		</script>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				position: absolute;
+			}
+			#box0{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				
+				left:200px;
+				top:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box0"></div>
+	</body>
+</html>

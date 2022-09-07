@@ -1,0 +1,20 @@
+{
+  "name": "es6-11",
+  "version": "1.0.0",
+  "main": "ES6/24_Promise实践多个文件读取.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "browserify": "^17.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

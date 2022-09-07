@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东导航条练习</title>
+    <link rel="stylesheet" href="../CSS/Reset%20CSS.css">
+    <link rel="stylesheet" href="../06_font&background/fontImage/css/all.css">
+    <style>
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear:both;
+        }
+        body{
+            font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial;
+        }
+        .top-bar-wrapper{
+            width: 100%;
+            background-color: #E3E4E5;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px #ddd solid;
+            position: relative;
+        }
+        /*    inner-wrapper*/
+        .top-bar{
+            width: 1190px;
+            margin: 0 auto;
+        }
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color: #999;
+            text-decoration: none;
+        }
+        .top-bar .height-light,
+        .top-bar a:hover{
+            color: red;
+
+        }
+        .location:hover a{
+            color: red;
+        }
+        .location{
+            float: left;
+        }
+        .location .current-city{
+            padding: 0 10px;
+            border:1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            z-index: 9999;
+/*          padding: 0 10px;
+            position: relative;
+            border: 1px solid transparent;
+            border-bottom: none;
+            z-index: 9999;*/
+        }
+        .location:hover .current-city{
+            background-color: white;
+            border: 1px solid rgb(204,204,204);
+            border-bottom: none;
+            padding-bottom: 1px;
+
+/*          background-color: white;
+            border: 1px solid rgba(204,204,204);
+            border-bottom: none;
+            padding-bottom: 1px;*/
+        }
+        .location .city-list{
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: white;
+            position: absolute;
+            border: 1px solid rgb(204,204,204);
+            box-shadow: 0 2px 2px rgba(0,0,0,.3);
+            top: 31px;
+            /*display: none;
+            width: 320px;
+            height: 436px;
+            background-color: white;
+            border: 1px solid rgb(204,204,204);
+            !*    使其不占据位置*!
+            position: absolute;
+            top: 31px;
+            z-index: 999;
+            box-shadow: 0 2px 2px rgba(0,0,0,.3);*/
+        }
+        .location:hover .city-list{
+            display: block;
+        }
+        .shortcut{
+            float: right;
+        }
+        .shortcut li{
+            float: left;
+        }
+
+        .shortcut .line{
+            width: 1px;
+            height: 10px;
+            background-color: red;
+            margin: 10px 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="top-bar-wrapper">
+    <div class="top-bar clearfix">
+        <!--            左侧菜单-->
+        <div class="location">
+            <div class="current-city">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="#">北京</a>
+            </div>
+            <div class="city-list">
+
+            </div>
+        </div>
+        <!--            右侧菜单-->
+        <ul class="shortcut clearfix">
+            <li>
+                <a href="#">你好，请登录</a>
+                <a class="height-light" href="#">免费注册</a>
+            </li>
+
+            <li class="line"></li>
+            <li><a href="#">我的订单</a></li>
+
+            <li class="line"></li>
+            <li>
+                <a href="#">我的京东</a>
+                <i class="fas fa-angle-down"></i>
+            </li>
+
+            <li class="line"></li>
+            <li>
+                <a href="#">京东会员</a>
+                <i class="fas fa-angle-down"></i>
+            </li>
+
+            <li class="line"></li>
+            <li>
+                <a class="height-light" href="#">企业采购</a>
+                <i class="fas fa-angle-down"></i>
+            </li>
+
+            <li class="line"></li>
+            <li>
+                <span>客户服务</span>
+                <i class="fas fa-angle-down"></i>
+            </li>
+
+            <li class="line"></li>
+            <li>
+                <span>网站导航</span>
+                <i class="fas fa-angle-down"></i>
+            </li>
+
+            <li class="line"></li>
+            <li>
+                <span>手机京东</span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

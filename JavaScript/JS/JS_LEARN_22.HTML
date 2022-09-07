@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式语法</title>
+    <script>
+
+        /* 量词：
+                a{n} a连续出现n次
+                (nm){m,n} nm连续出现m到n次
+                {m,} m次及以上
+                + 至少一个，相当于{1,}
+                * 0个或多个，相当于{0,}
+                ? 0个或1个，相当于{0，1}
+            ^ 表示开头
+                ^a 以a开头
+            $ 表示结尾
+                a$ 以a结尾
+            . 表示任意字符
+                \. 表示 .
+                \\ 表示 \
+            \w 任意字母数字，下划线
+            \W 除了字母数字，下划线
+            \d 任意的数字
+            \D 除了数字
+            \s 表示空格
+            \S 除了空格
+            \b 单词边界
+            \B 除了单词边界 
+
+        */
+
+        // 创建一个正则表达式，用来检查一个字符串是否是一个合法手机号
+        /*
+            1. 11位数字
+            2. 以1开头
+            3. 第二位3-9任意数字
+            4. 三位以后任意数字9个
+
+        */
+
+        var phoneNumber = '17095740648';
+        var reg = /^1[3-9][0-9]{9}$/;
+        console.log(reg.test(phoneNumber));
+
+        // 去除用户输入的单词前后的空格，中间的不能去
+
+        var user = prompt("Please input your user:");
+        console.log(user);
+        user = user.replace(/^\s*|\s*$/g,'');
+        console.log('\"',user,'\"');
+
+
+
+        /* 电子邮件的正则
+            任意字母数字下划线 .任意字母数字下划线 @ 任意字母数字 .任意字母（2-5位） .任意字母（2-5位）
+
+        */
+        var emai = /^\w{3,}(\.\w)*@([A-z]|\d)+(\.[A-z]{2,5}){1,2}$/;
+        var email = 'abx@qq.com';
+        console.log('邮件的判断',emai.test(email));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

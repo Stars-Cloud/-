@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_正则扩展-命名捕获分组</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 声明一个字符串
+    let str = "<a href='http://www.bilibili.com'>哔哩哔哩</a>"
+    const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/
+    const result = reg.exec(str)
+    console.log(result)
+</script>
+</body>
+</html>

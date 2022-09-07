@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div contenteditable="true" style="width: 200px;height: 200px;background: skyblue;overflow: hidden">
+    <div style="width: 100px;height: 100px;background: pink;margin: 0 auto;" contenteditable="false">
+        <mark>I LOVE YOU</mark>
+    </div>
+</div>
+<div style="width: 200px;height: 200px;background: fuchsia"></div>
+<menu style="width: 200px;height: 200px;background: yellowgreen">
+    <menu label="文件">
+        <menuitem type="command" onclick="file_new()" label="新建"></menuitem>
+        <menuitem type="command" onclick="file_new()" label="打开"></menuitem>
+        <menuitem type="command" onclick="file_new()" label="保存"></menuitem>
+    </menu>
+</menu>
+</body>
+<script type="text/javascript">
+    let map = new Map()
+    map.set("name","fan")
+    map.set("age",21)
+    map.set("grand","male")
+
+    for (let [key,value] of map)
+    {
+        console.log(`key:${key},value:${value}`)
+    }
+
+    let arr =  ["fan","xing","tong"]
+    arr.forEach(([value],index)=>{
+        console.log(`value-first:${value},index:${index}`)
+    })
+/*    localStorage.setItem('name','fan')
+    localStorage.getItem('name')*/
+
+</script>
+</html>

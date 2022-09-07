@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_String.prototype.matchAll</title>
+</head>
+<body>
+<script type="text/javascript">
+    let str = `
+        <ul>
+            <li>
+                <a>肖申克的救赎</a>
+                <p>上映日期：1994-09-10</p>
+            </li>
+            <li>
+                <a>阿甘正传</a>
+                <p>上映日期：1994-07-06</p>
+            </li>
+        </ul>
+    `
+
+    const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+
+    const result = str.matchAll(reg)
+    console.log(result) // 有next（）
+    for (let v of result){
+        console.log(v)
+    }
+
+    const result1 = str.matchAll(reg)
+    const arr = [...result1]
+    console.log(arr)
+
+</script>
+</body>
+</html>

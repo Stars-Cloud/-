@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私有属性</title>
+</head>
+<body>
+<script type="text/javascript">
+    class Person{
+        // 公有
+        name
+        // 私有
+        #age
+        #weight
+        constructor(name,age,weight){
+            this.name = name
+            this.#age = age
+            this.#weight = weight
+        }
+        info(){
+            console.log(this.name,this.#weight,this.#age)
+        }
+    }
+    const girl = new Person('fan',21,'120kg')
+    // console.log(girl.name,girl.#age,girl.#weight)  报错
+    girl.info()
+</script>
+</body>
+</html>

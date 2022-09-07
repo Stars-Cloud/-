@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>伪元素选择器</title>
+    <style>
+        /* 
+            伪元素，表示页面中一些特殊的并不真实的存在的元素（特殊的位置）
+                伪元素使用 ：：开头
+
+                :: first-letter 表示第一个字母
+                :: first-line 表示第一个行
+                :: selection 表示选中的内容
+
+            **    :: before 元素的开始 
+            **    :: after 元素的结束
+                    before 和 after 必须结合content属性来使用
+        */
+
+        p::first-letter{
+            font-size: 40px;
+        }
+        p::first-line{
+            background-color: yellowgreen;
+        }
+        p::selection{
+            background-color: goldenrod;
+        }
+        div.container::before{
+            content:'ABC';
+            color:red;
+        }
+        div.container::after{
+            content: "haha";
+            color: orchid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">Hello, Are you OK?</div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quia culpa explicabo, laudantium perferendis odit unde, reprehenderit suscipit necessitatibus neque rerum magnam eaque temporibus. Accusantium est atque suscipit facere in.
+        </p>
+</body>
+</html>

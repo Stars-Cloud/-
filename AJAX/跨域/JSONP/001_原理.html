@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原理</title>
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            outline: 1px red solid;
+        }
+    </style>
+</head>
+<body>
+<div id="result"></div>
+<script type="text/javascript">
+    function handel(data){
+        const result = document.querySelector('#result')
+        result.innerHTML = data.name
+    }
+</script>
+<!--<script src="http://localhost:63342/AJAX/%E8%B7%A8%E5%9F%9F/JSONP/app.js"></script>-->
+<script src="http://127.0.0.1:8000/jsonp-server"></script>
+</body>
+</html>

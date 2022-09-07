@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出切换</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<!--
+    淡入淡出：不断改变元素的透明度(opacity)来实现
+    1.fadeIn():带动画的显示 (先设置display，再修改opacity)
+    2.fadeOut():带动画隐藏 (先修改opacity，再设置display)
+    3.fadeToggle():带动画切换显示/隐藏
+
+    可以在其中传入回调函数，当动画执行完后开始执行回调函数中的代码
+-->
+<div class="div1"></div>
+<button id="btn1">淡出</button>
+<button id="btn2">淡入</button>
+<button id="btn3">淡出/淡入</button>
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*
+        需求：
+            1.点击btn1，慢慢淡出
+                无参
+                有参
+                    字符串参数
+                    数字参数
+            2.点击btn3，慢慢淡入
+            3.点击btn3，淡出/淡入切换，动画结束时提示“动画结束了”
+    */
+    let $div1 = $('.div1')
+    $('#btn1').click(function(){
+        $div1.fadeOut(1000)
+        // $div1.fadeOut('slow')
+    })
+    $('#btn2').click(function(){
+        $div1.fadeIn(1000,function(){
+            $div1.css({
+                background:'skyblue'
+            })
+        })
+        // $div1.fadeOut('slow')
+    })
+    $('#btn3').click(function(){
+        $div1.fadeToggle()
+    })
+</script>
+</body>
+</html>

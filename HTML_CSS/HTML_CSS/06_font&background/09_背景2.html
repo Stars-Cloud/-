@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景</title>
+<!--
+    background-color
+    background-image
+    background-repeat
+    background-position
+    background-size
+    background-origin
+    background-clip
+    background-attachment
+-->
+    <style>
+        .box1 {
+            /*outline: 10px red double;*/
+            border: 10px red double;
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            background-image: url('../img/壁纸2-gigapixel-scale-2x.png');
+            background-repeat: no-repeat;
+            /*background-position: -1500px -100px;*/
+
+            padding: 10px;
+        /*
+            设置背景的范围：
+                background-clip
+                    可选值
+                        border-box 默认值，背景会出现在边框的下边
+                        padding-box 背景不会出现在边框，只出现在内容区和内边距
+                        content-box 背景只会出现在内容区
+
+                background-origin 背景图片的偏移量计算的原点
+                        padding-box 默认值，background-position从内边距处开始计算,所以原点就在内边距处
+                        content-box 背景图片的偏移量从内容区处计算
+                        border-box 背景图片的变量从边框处开始计算
+
+                background-size 设置背景图片的大小
+                    第一个值表示宽度
+                    第二值表示高度
+                    如果只写一个，则第二个值默认是auto
+
+                    cover 图片比例不变，将元素铺满
+                    contain 图片比例不变，将图片在元素中完整显示
+
+                background-attachment
+                    - 背景图片是否跟随元素移动
+                    - 可选值
+                        scroll 默认值 背景图片跟随元素移动
+                        fixed 背景会固定在页面中，不会随元素移动
+
+
+                background 背景相关的简写属性，所有背景相关的样式都可以通过改样式来设置
+                    并且该样式没有顺序要求，也没有哪个属性是必须写的
+
+                    注意：
+                        background-size 必须写在background-position的后边，并且使用/隔开
+                            background-position/background-size
+
+                        background-origin backgrond-clip 两个样式，origin要在clip的前面
+        */
+            background-clip: content-box;
+            background-size: 520px 520px;
+            background-origin: border-box;
+            overflow: auto;
+        }
+        .box2{
+            width: 300px;
+            height: 1000px;
+            background-image: url("../img/壁纸1-gigapixel-scale-2x.png");
+            background-size: cover;
+
+            background-attachment: fixed;
+        }
+        .box3{
+            width: 500px;
+            height: 500px;
+            background: #bfa url("../img/狐仙-gigapixel-scale-2x.png") center center/contain border-box content-box no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, eius, quod. Ad aliquid at atque dolorem eius fugit impedit, incidunt necessitatibus pariatur perspiciatis quae quia reprehenderit saepe similique tempore unde!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores aut cupiditate deserunt libero necessitatibus officiis, quae quas quidem quisquam quos rerum similique. Cumque esse id necessitatibus neque reiciendis vel.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, illum libero. Accusantium ad asperiores autem, culpa delectus doloribus ea eum hic, maiores nostrum pariatur, perspiciatis quis quod similique sint veritatis?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, exercitationem, expedita? Aliquid blanditiis, ea possimus quasi quia tempore voluptate voluptates voluptatum. Architecto commodi debitis dolorum eveniet id incidunt pariatur sed.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus animi asperiores, aspernatur corporis cum delectus dicta, error facere, ipsa iste iure laudantium modi natus nisi pariatur placeat quidem quo vitae.
+
+        </div>
+    </div>
+</body>
+</html>

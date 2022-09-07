@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13_Symbol的使用</title>
+</head>
+<body>
+<script>
+    /*
+        调用Symbol定义的方法:
+            1.Reflect.ownKeys(game) 静态方法 Reflect.ownKeys() 返回一个由目标对象自身的属性键组成的数组
+                Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与proxy handlers (en-US)的方法相同。Reflect不是一个函数对象，因此它是不可构造的。
+                Reflect.ownKeys(obj)和Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))等价
+                    Reflect.ownKeys和Object.keys的区别
+                        Reflect.ownKeys返回所有的属性不管是不是可枚举
+                        Object.keys返回可枚举的属性
+            2.Object.getOwnPropertySymbols(game)
+                Object.getOwnPropertyNames(game) 方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。
+                Object.getOwnPropertySymbols(obj) 方法返回一个给定对象自身的所有 Symbol 属性的数组。
+    */
+    //向对象中添加方法 up down
+    let game = {
+        name:'永结无间',
+        up:'pubg',
+        down:'csgo'
+    }
+    let methods = {
+        up:Symbol(),
+        down: Symbol()
+    }
+    game[methods.up] = function () {
+        console.log('i am playing pubg')
+    }
+    game[methods.down] = function(){
+        console.log('i am playing csgo')
+    }
+    console.log(game)
+    game[methods.up]()
+    game[methods.down]()
+
+    let game1 = {
+        name:'wolf kill',
+        [Symbol('say')]:function(){
+            console.log('it is time to sunset')
+        },
+        [Symbol('boom')]:function(){
+            console.log('i can boom by myself')
+        }
+    }
+    const attr = Object.getOwnPropertySymbols(game1)
+    game1[attr[0]]() // a[0] = [Symbol('say')]
+    game1[attr[1]]() // a[1] = [Symbol('boom')]
+
+    /*const attr = Reflect.ownKeys(game1)
+    game1[attr[1]]()
+    game1[attr[2]]()*/
+</script>
+</body>
+</html>

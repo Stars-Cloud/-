@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        DOM 的增删改
+        也可以使用innerHTML += newNode 增删改
+        不过一个是两种方法结合使用（推荐）
+    </title>
+    <script>
+        /* 创建一个广州的元素节点：<li>广州</li>
+            createElement()
+            createTextNode()
+        */
+        var li = document.createElement(tagName='li');
+        var text = document.createTextNode(data="广州");
+
+
+        /* appendChild()
+            -向一个父节点中添加一个新的节点
+            -父节点.appendChild(子节点)
+        */
+       li.appendChild(text);
+       var city = document.getElementById(" ");
+       city.appendChild(li);
+
+
+       /* insertBefore()
+            -可以在指定的子节点前插入新的子节点
+            -语法：
+                子节点.parentNode.insertBefore(newNode,oldNode);
+        */
+
+        /* 子节点.parentNode.replaceChild(newNode,oldNode);
+                替换掉指定的子节点
+        */
+        
+        /* 子节点.parentNode.removeChild(Node);
+                删除指定的子节点
+        */
+
+        /* 总结：
+                先通过id、name获取节点然后调用方法
+                增(appendChild/insertBefore)、删(removeChild)、改(replaceChild)都需要先获取父节点，然后再调用方法
+                        这些方法只会改变父元素下的一个子元素
+
+                也可以使用innerHTML进行 增、删、改
+                        这个方法会改动父元素下的所有子元素
+
+                建议两种方法结合使用
+                        eg：调用createTextNode时可以直接使用innerHTML
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

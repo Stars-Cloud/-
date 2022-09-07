@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+</head>
+<body>
+<p style="color:blue;">Fac</p>
+<p style="color:green;">Nei</p>
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    console.log($('p:first').css('color'))
+    $('p').css('color','red')
+    $('p:eq(1)').css({
+        color:'#ff0011',
+        background:'skyblue',
+        width:200,
+        height:200
+    })
+
+</script>
+</body>
+</html>

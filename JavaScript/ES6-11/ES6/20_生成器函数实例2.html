@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成器函数实例2</title>
+</head>
+<body>
+<script>
+    /*
+        模拟获取:
+            用户数据
+            订单数据
+            商品数据
+    */
+    function getUsers(){
+        setTimeout(()=>{
+            let data = 'user data'
+            iterator.next(data)
+        },1000)
+    }
+    function getOrders(){
+        setTimeout(()=>{
+            let data = 'order data'
+            iterator.next(data)
+        },1000)
+    }
+    function getGoods(){
+        setTimeout(()=>{
+            let data = 'good data'
+            iterator.next(data)
+        },1000)
+    }
+    function * gen(){
+        let userData = yield getUsers()
+        console.log(userData)
+        let orderData = yield getOrders()
+        console.log(orderData)
+        let goodData = yield getGoods()
+        console.log(goodData)
+    }
+    let iterator = gen()
+    iterator.next()
+</script>
+</body>
+</html>

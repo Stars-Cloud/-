@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_函数、函数参数</title>
+    <script>
+        /*函数也是一个对象*/
+        var fun =  new Function("console.log('Hello World');");
+        // console.log(typeof fun);
+        fun();
+
+
+        /*上面的方法狗都不用*/
+        function fun2(){
+            console.log('Hello World');
+        }
+        fun2();
+
+
+        /*有参数的函数*/
+        function sum(a,b){
+            console.log(a+b);
+        }
+        sum(a=1,b=3);
+
+
+        /*函数结果的返回*/
+        function sum1(a,b,c){
+            return a+b+c;
+        }
+        var result = sum1(3,6,8);
+        console.log(result);
+
+
+        /*判断一个数是否是偶数*/
+        function isOu(a){
+            if(a%2 == 0){
+                return a+"是一个偶数";
+            }
+            else{
+                return a+'不是一个偶数';
+            }
+        }
+        console.log(isOu(6));
+
+
+        /*对象和函数的混合使用  函数的参数亦可以是一个对象*/
+        function instruaction(people){
+            console.log('我是'+people.name+',今年'+people.age+'岁了，住在'+people.address+"。");
+    
+        }
+        var people = {
+            name:'孙悟空',
+            age:2600,
+            address:'花果山'
+        }
+        instruaction(people);
+
+
+        /*函数的参数也可以是一个函数*/
+        /*
+        * sum()
+        *   -调用函数
+        * sum
+        *   -函数对象
+        */
+
+
+        /*匿名函数---立即执行函数*/
+        (function(a,b){
+            console.log('匿名函数-立即执行函数');
+            console.log(a+b);
+        })(123,5457);
+
+
+        /*对象的属性值也可以是一个函数*/
+        // 如果一个函数作为一个对象的属性，那么我们称这个函数是这个对象的方法
+        // 调用函数就说调用对象的方法  只是名称的区别
+        var obj = new Object();
+        obj.name = '孙悟空';
+        obj.age = 2900;
+        obj.sayName = function(){
+            console.log(obj.name);
+        }
+        obj.sayName();
+
+
+        /*枚举对象中的属性*/  //使用for ...in 语句。
+        var ace = {
+            name:'孙悟空',
+            age:1200,
+            sex:'男',
+            adress:'花果山'
+        };
+        
+        var number = 0;
+        for(var n in ace){
+            console.log('属性名:'+n);
+            console.log('属性值:'+ace[n]);
+            number++;
+        }
+        console.log('对象中有'+number+'个属性');
+        /*获取Document中的属性及属性值*/
+        console.log('Document中的属性：');
+        var a = 0;
+        for (var c in Document){
+            console.log(c+':'+Document[c]);
+            a++;
+        }
+        console.log('Document对象中有'+a+'个属性');
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

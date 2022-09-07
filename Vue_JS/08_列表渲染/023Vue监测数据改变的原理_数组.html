@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue监测数据改变的原理_数组</title>
+</head>
+<body>
+<div id="root">
+    <h2>学校的名称：{{name}}</h2>
+    <h2>学校的地址：{{address}}</h2>
+    <br>
+    <h1>学生信息</h1>
+    <button @click="addSex">点击添加</button>
+    <h2>学生姓名:{{student.name}}</h2>
+    <h2>学生年龄:{{student.age.rAge}}</h2>
+    <h2 v-if="student.sex">学生性别:{{student.sex}}</h2>
+    <ul>
+        <li v-for="(f,index) in student.friends" :key="index">
+            {{f.name}}-{{f.age}}
+        </li>
+    </ul>
+    <h2>爱好</h2>
+    <ul>
+        <li v-for="(h,index) in student.hobby" :key="index">
+            {{h}}
+        </li>
+    </ul>
+    <h2>朋友</h2>
+    <ul>
+        <li v-for="(f,index) in student.friends" :key="index">
+            {{f.name}}-{{f.age}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el:"#root",
+        data:{
+            name:"西科",
+            address:"西安",
+            student:{
+                name:"fan",
+                age:{
+                    rAge:40,
+                    sAge:29,
+                },
+                hobby:['抽烟','喝酒','打麻将'],
+                friends:[
+                    {name:"jerry",age:35},
+                    {name:"tony",age:36},
+                ]
+            }
+        },
+        methods:{
+            addSex:function(){
+                Vue.set(this.student,'sex','男')
+            }
+        }
+    })
+</script>
+</body>
+</html>

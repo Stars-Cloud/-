@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟一个数据监测</title>
+</head>
+<body>
+<!--
+        使用了一个函数对象Observer来为data中的每一个属性添加getter和setter方法
+-->
+    <script type="text/javascript">
+        let data = {
+            name:'aac',
+            address:'BiJing'
+        }
+
+        const obs = new myObserver(data)
+        // console.log(obs)
+
+        let vm = {}
+        vm._data=data=obs
+
+        function myObserver(obj){
+            const keys = Object.keys(obj)
+
+            // console.log(keys)
+            keys.forEach((k)=>{
+                Object.defineProperty(this,k,{
+                    get(){
+                        return obj[k]
+                    },
+                    set(v) {
+                        console.log('$(k)被改了，我要去解析模板，生成虚拟DOM，对比旧DOM......')
+                        obj[k] = v
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+</html>

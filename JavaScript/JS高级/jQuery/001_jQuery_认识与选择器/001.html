@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识jQuery</title>
+<!--
+    是什么？what？
+        一个js函数库：writ less，do more
+        封装简化DOM操作（CRUKD） /  Ajax
+    为什么用它：why？
+        强大的选择器
+        隐式遍历（迭代）：一次操作多个元素
+        读写合一：读数据、写数据用的是一个函数
+        事件处理
+        链式调用
+        DOM操作
+        样式操作
+    如何使用：why？
+        引入jQuery库
+            本地引入和CDN远程引入
+            测试版与生产版
+        使用jQuery
+            使用jQuery函数：$/jQuery
+            使用jQuery对象：$xxx(执行$()得到的)
+
+    1.使用jQuery核心函数：$/jQuery
+    2.使用jQuery核心对象：执行$()返回的对象
+-->
+    <script>
+        // js
+        window.onload = function(){
+            let username = document.getElementById("username").value
+            let btn1 = document.getElementById("btn1").onclick = function () {
+                alert(username)
+            }
+
+        }
+        // jQuery
+
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+    <script>
+        $(function(){
+            $('#btn2').click(function(){
+                alert($('#username').val())
+            })
+        })
+    </script>
+</head>
+<body>
+<input id="username">
+<button id="btn1">js</button>
+<button id="btn2">jQuery</button>
+</body>
+</html>

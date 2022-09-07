@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回顾一个DOM操作</title>
+<!--
+    parentNode w3c标准
+    parentElement 仅仅只有IE浏览器支持
+
+    1.append接收Node对象和DOMSting,而appendChild只接受Node对象
+    2.append没有返回值,而appendChild返回附加的Node对象
+    3.append允许添加多个项目而appendChild仅仅允许单个项目
+-->
+</head>
+<body>
+    <button id="btn">click</button>
+<script type="text/javascript">
+    const btn = document.getElementById('btn')
+    btn.onclick = function(){
+        const input = document.createElement('input')
+
+        input.onclick = function(){
+            console.log(btn.parentNode,btn.parentElement)
+            console.log(btn.parentNode===btn.parentElement)
+        }
+
+        btn.parentElement.appendChild(input)
+        input.focus()
+        input.parentNode.style.background = 'skyblue'
+    }
+</script>
+</body>
+</html>

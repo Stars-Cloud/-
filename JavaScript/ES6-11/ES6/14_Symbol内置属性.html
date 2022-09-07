@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbo内置属性</title>
+</head>
+<body>
+<script>
+    /*
+        1.Symbol.hasInstance 用来定义一个构造对象/类（class）如何识别一个变量是否是它的实例，对应 instanceof 命令符
+        2.Symbol.isConcatSpreadable 用来配置一个数组对象，表示它在使用concat（）方法时，数组元素是否能被展开
+        3.Symbol.iterator 用来声明一个对象的默认遍历器。普通对象没有遍历器接口，为它指定了Symbol.iterator之后就可以使用for...of遍历他
+        4.Symbol.match 定义了这个属性的对象，在执行match(obj)时，就会调用这个属性对应的函数
+        5.Symbol.replace 与match类似
+        6.Symbol.search
+        7.Symbol.split
+        8.Symbol.species 指向一个构造函数，创建衍生对象时，会使用该函数返回的属性
+        9.Symbol.toPrimitive 用于声明一个值为函数的属性，当一个对象要转换为一个相应的原始值时，会调用该函数，该函数会接收一个字符串参数
+        10.Symbol.toStringTag 指向一个方法。在该对象上面调用Object.prototype.toString方法时，如果这个属性存在，它的返回值会出现在toString方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制[object Object]或[object Array]中object后面的那个字符串。
+    */
+/* Symbol.hasInstance
+    class Person{
+        static [Symbol.hasInstance](param){
+            console.log(param) // param 就是instanceof前面的值
+            console.log('监测类型')
+            return Object.prototype.toString.call(param) === 'Person'
+        }
+    }
+    let o = {}
+    console.log(o instanceof Person)
+
+    const Ismoblie = {
+        [Symbol.hasInstance]: function(text) {
+            var pattern = /^1[3-9]\d{9}$/
+            return pattern.test(text)
+        }
+    }
+    console.log('abc' instanceof Ismoblie) // false
+    console.log('18312345678' instanceof Ismoblie) // true
+*/
+
+
+/*  Symbol.isConcatSpreadable
+    const arr = [1,2,3];
+    const arr2 = [4,5,6]
+    console.log(arr.concat(arr2)) // [1,2,3,4,5,6]
+
+    arr2[Symbol.isConcatSpreadable] = false // 控制这个值是否展开
+    console.log(arr.concat(arr2)) // [1,2,3,[4,5,6]]
+*/
+
+/*  Symbol.iterator
+    const iterable1 = new Object();
+
+    iterable1[Symbol.iterator] = function* () {
+        yield 1;
+        yield 2;
+        yield 3;
+    };
+
+    console.log([...iterable1]);
+    // expected output: Array [1, 2, 3]
+*/
+
+
+/*  Symbol.species
+    class Array1 extends Array {
+        static get [Symbol.species]() { return Array; }
+    }
+
+    const a = new Array1(1, 2, 3);
+    const mapped = a.map(x => x * x);
+
+    console.log(mapped instanceof Array1);
+    // expected output: false
+
+    console.log(mapped instanceof Array);
+    // expected output: true
+*/
+
+/*  Symbol.toPrimitive
+    let a = {
+        valueOf() {
+            return 0;
+        },
+        toString() {
+            return '1';
+        },
+        [Symbol.toPrimitive](hint) {
+            switch (hint) {
+                case 'number':
+                    return 123;
+                case 'string':
+                    return 'str';
+                case 'default':
+                    return 'default';
+                default:
+                    throw new Error();
+            }
+        }
+    }
+    console.log(2 * a) // 246
+    console.log(3 + a) // '3default'
+    console.log(a == 'default') // true
+    console.log(a == 'default') // 'str'
+*/
+
+
+/*  Symbol.toStringTag
+    class ValidatorClass {
+        get [Symbol.toStringTag]() {
+            return 'Validator';
+        }
+    }
+
+    console.log(Object.prototype.toString.call(new ValidatorClass()));
+    // expected output: "[object Validator]"
+    let c = {}
+    c[Symbol.toStringTag] = 'nike sb'
+    c.toString()
+    // expected output: "[object nike sb]"
+*/
+
+</script>
+</body>
+</html>

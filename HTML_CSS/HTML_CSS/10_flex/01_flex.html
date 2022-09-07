@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .bar{
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: row-reverse;
+            /*flex-wrap: wrap;*/
+            /*
+               justify-content
+                    flex-start
+                    flex-end
+                    center
+                    space-between   均匀分布空白在元素单侧
+                    space-evenly    均匀分布空白在元素两侧
+            */
+            /*
+                align-items:
+                    stretch 默认、将元素的长度设置为相同的值
+                    flex-start
+                    flex-end
+                    center
+                    baseline
+            */
+            justify-content: space-between;
+        /*
+            在弹性盒中的元素居中：
+                align-items:center
+                justify-content:center
+        */
+        }
+        .list{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            /*flex-grow: 1;*/
+        }
+        /*
+            order: order的值越小，其元素会排在前面
+        */
+        .list:nth-child(1){
+            background-color: #bfc;
+            order: 1;
+
+        }
+        .list:nth-child(2){
+            background-color: #00aacc;
+            order: 2;
+        }
+        .list:nth-child(3){
+            background-color: darkslateblue;
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+<ul class="bar">
+    <li class="list">1</li>
+    <li class="list">2</li>
+    <li class="list">3</li>
+</ul>
+</body>
+</html>

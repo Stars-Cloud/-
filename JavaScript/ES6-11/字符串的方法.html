@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串的方法</title>
+</head>
+<body>
+<script>
+    const STR = 'mozilla'
+    const str = ',hello'
+    // 1.length 获取字符串的长度
+    console.log('length:',STR.length)
+
+    console.log('--------------------------获取字符串内容-------------------------------')
+
+    // 2.str[index],charAt(),charCodeAt()
+    console.log('str[index]:',STR[0]) // 获取字符串中的某个字符,根据下标获取 , 无则返回undefined
+    console.log('charAt:',STR.charAt(0)) // 返回字符串中指定下标的字符 , 无则返回空字符串
+    console.log('charCodeAt():',STR.charCodeAt(0)) //  返回字符串指定位置的unicode编码(十进制)
+
+    console.log('----------------------------在字符串中查找指定内容-----------------------')
+
+    // 3.indexOf() , lastIndexOf()
+    console.log('indexOf():',STR.indexOf(searchString='zill',position=0)) // 返回字符串中一个字串第一处出现的索引, 无则返回-1
+    console.log('lastIndexOf:',STR.lastIndexOf(searchString='i',position=1)) // 返回指定文本在字符串中最后一次出现的索引, 无则返回-1
+    // lastIndexOf方法检索的本质是从后往前检索,position=1,即只有'mo'两个字符,没有字符'i',所以返回-1
+
+    // 4.search()
+    console.log('search:',STR.search('z'))
+    console.log('search(正则):',STR.search(/l/ig))
+    /*
+        search() 方法无法设置第二个开始位置的参数
+        indexOf() 方法无法设置更强大的搜索值(正则表达式)
+    */
+
+    console.log('------------------------------对字符串切片------------------------------')
+
+    // 5.slice()
+    console.log('slice:',STR.slice(2,6)) // 可以接收负值,则从结尾开始计数;可以省略第二个参数
+
+    // 6.substring()
+    console.log('substring:',STR.substring(2,6)) // 不接受负值;可以省略第二个参数
+
+    // 7.substr()
+    console.log('substr:',STR.substr(number=2,length=4)) //参数1:开始位置;参数二:截取长度; 可以省略第二个参数
+
+    console.log('-------------------------------替换字符串--------------------------------')
+
+    // 8.replace()
+    console.log('replace:',STR.replace('zill','AAAA'))
+    console.log('replace(正则):',STR.replace(/zill/ig,'AAAA'))
+
+    console.log('-------------------------------大小写转换---------------------------------')
+
+    // 9.toUpperCase(), toLowerCase()
+    console.log('toUpperCase:',STR.toUpperCase())
+    console.log('toLowerCase:','MOZILLA'.toLowerCase())
+
+    console.log('------------------------------连接字符串-----------------------------------')
+
+    // 10.concat()
+    console.log('concat:',STR.concat(str))
+    console.log('concat:',STR.concat(" ",str,"!"))
+
+    console.log('-------------------------------删除字符串两端空格----------------------------')
+
+    // 11.trim()
+    console.log('trim:',"@"+'  mozilla  '.trim()+"@")
+
+    console.log('------------------------------字符串转数组----------------------------------')
+
+    // 12.split()
+    console.log('split:',STR.split(''))
+    console.log('split(正则):',STR.split(/l/ig))
+    console.log('before:',Object.prototype.toString.call(STR),'after:',Object.prototype.toString.call(STR.split('')))
+
+</script>
+</body>
+</html>

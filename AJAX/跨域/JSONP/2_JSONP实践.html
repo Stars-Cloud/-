@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+</head>
+<body>
+用户名: <input type="text" id="username">
+        <p></p>
+<script>
+    const input = document.querySelector('#username')
+    const p = document.querySelector('p')
+    function handel(data){
+        input.style.border = 'red 1px solid'
+        p.innerHTML = data.msg
+        p.style.color = 'red'
+    }
+
+    input.onblur = function(){
+        let username = this.value
+        const script = document.createElement('script')
+        script.src = 'http://127.0.0.1:8000/check-username'
+        // 将script插入到文档中，如果不插入浏览器不会向服务器发送请求
+        document.body.appendChild(script)
+    }
+
+</script>
+</body>
+</html>

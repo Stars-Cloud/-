@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内存泄露与内存溢出</title>
+</head>
+<body>
+<!--
+    1.内存溢出
+        一种程序运行出现的错误
+        当程序运行需要的内存超过了剩余的内存时，就抛出内存溢出的错误
+    2.内存泄露
+        占用的内存没有及时释放
+        内存泄露积累多了就容易导致内存溢出
+        常见的内存泄露：
+            意外的全局变量
+            没有意识清理的计时器或回调函数
+            闭包
+-->
+<script type="text/javascript">
+    /*
+        面试题
+    */
+    var name1 = "The Window"
+    var Object1 = {
+        name1: "My Object",
+        getNameFunc:function(){
+            return function(){
+                return this.name1
+            }
+        }
+    }
+    alert(Object1.getNameFunc()()) // Object1.getNameFunc()的返回是一个函数，而调用函数时的this是window
+
+
+    var name2 = "The Window"
+    var Object2 = {
+        name2: "My Object",
+        getNameFunc:function(){
+            var that = this
+            return function(){
+                return that.name2
+            }
+        }
+    }
+    alert(Object2.getNameFunc()())
+
+
+    function fun(n,o){
+        console.log(o)
+        return{
+            fun:function(m){
+                return fun(m,n)
+            }
+        }
+    }
+    var a = fun(0); a.fun(1);   a.fun(2);   a.fun(3);
+    var b = fun(0).fun(1).fun(2).fun(3);
+    var c = fun(0).fun(1);  c.fun(2);   c.fun(3);
+</script>
+</body>
+</html>

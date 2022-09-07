@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表的过滤</title>
+</head>
+<body>
+<div id="root">
+    <h2>人员列表</h2>
+    <input type="text" placeholder="请输入名字" v-model="keyWord">
+    <ul>
+        <li v-for="(p,index) in filPerson" :key="p.id">
+            {{p.name}}-{{p.age}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    //watch实现
+    // const vm = new Vue({
+    //     el:'#root',
+    //     data:{
+    //         keyWord:'',
+    //         persons:[
+    //             {id:'001',name:'马冬梅',age:23,gender:'女'},
+    //             {id:'002',name:'周冬雨',age:22,gender:'女'},
+    //             {id:'003',name:'周杰伦',age:26,gender:'男'},
+    //             {id:'003',name:'温兆伦',age:24,gender:'男'},
+    //         ],
+    //         filPerson:[],
+    //     },
+    //     watch:{
+    //         keyWord: {
+    //             immediate:true,
+    //             handler:function(newValue, oldValue){
+    //                 // console.log('keyWord被改了')
+    //                 this.filPerson = this.person.filter((p)=>{
+    //                     return p.name.indexOf(newValue) !== -1
+    //                 })
+    //             }
+    //         }
+    //     }
+    // })
+
+    //computed实现
+    const vm = new Vue({
+        el:'#root',
+        data: {
+            keyWord: '',
+            persons: [
+                {id: '001', name: '马冬梅', age: 23, gender: '女'},
+                {id: '002', name: '周冬雨', age: 22, gender: '女'},
+                {id: '003', name: '周杰伦', age: 26, gender: '男'},
+                {id: '003', name: '温兆伦', age: 24, gender: '男'},
+            ],
+        },
+        computed:{
+            filPerson(){
+                return this.persons.filter((p)=>{
+                    return p.name.indexOf(this.keyWord) !==  -1
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

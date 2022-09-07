@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+        /* 所有的段落设置为红色字体
+           
+           元素选择器：
+                根据标签名来选中指定的元素
+                语法：标签名{}
+                eg：p{}  h1{}
+
+            id选择器：
+                根据元素的id属性值选中一个元素
+                语法：#id属性值{}
+                eg： #box{} #p3{}
+            
+            类选择器：
+                根据元素的class属性值选中一组元素
+                语法：.class属性值
+
+            通配选择器：
+                选中页面中的所有元素
+                语法： *
+        */
+        #p3{
+            color: blueviolet;
+        }
+        p{
+            font-size: 50px;
+        }
+        .blue{
+            font-style: oblique;
+        }
+        *{
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <h3>归乡</h3>
+    <p>少小离家老大回</p>
+    <p>乡音无改鬓毛衰</p>
+    <p id="p3">儿童相见不相识</p>
+    <p>笑问客从何处来</p>
+    <!-- class是一个标签的属性，它和id类似，不同的是class可以重复使用
+                可以通过class属性来为元素分组
+                可以同时为一个元素指定多个class属性
+    -->
+    <p class="blue">秋水共张天一色</p>
+    <p class="blue">落霞与孤鹜齐飞，秋水共张天一色。</p>
+</body>
+</html>

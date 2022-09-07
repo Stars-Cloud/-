@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+
+    <script>
+
+        /*正则表达式
+          
+
+          正则表达式用于定义一些字符串的规则
+        */
+
+        // var reg = new RegExp('正则表达式','匹配模式');
+        /* 匹配模式：i 忽略大小写
+                    g 全局匹配模式
+        */
+        
+        /* 正则表达式的方法：
+        //     test()
+        //         -使用这个方法可以用来检查一个字符串是否符合正则表达式的规则
+        //         -符合：true，不符合：false
+        */
+        var str = 'absdwgak';
+        var reg  = new RegExp("a");
+        console.log(reg.test(str));
+
+
+        var reg = /a|d/i;
+        console.log(reg.test("abc"));
+
+
+        /*
+            | 或者
+            [] 里面的内容也是或的关系 [a-z]任意的小写字母
+                                     [A-z]任意的字母
+                                     [0-9]任意的数字
+            [^……] 除了…… 有其他的都返回true
+        */
+       
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

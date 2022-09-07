@@ -1,0 +1,3 @@
+var assert = require("assert")
+var addon = require(`./build/Release/addon/node`)
+console.log(addon.hello())

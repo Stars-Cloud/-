@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <style>
+        .div1{
+            box-sizing: border-box;
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: mediumaquamarine;
+            top: 50px;
+            left:100px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">逐渐扩大</button>
+<button id="btn2">移动到指定位置</button>
+<button id="btn3">移动指定距离</button>
+<button id="btn4">停止动画</button>
+<br><br>
+<div class="div1">
+    花无凋零之日，意无传达之期，<br>
+    爱情亘古不变，紫罗兰永世长存。
+</div>
+
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*
+        1.逐渐扩大
+            宽高都阔为200px
+            宽先扩为200px，高厚阔为200px
+    */
+    let $div1 = $('.div1')
+    $('#btn1').click(function(){
+        // $div1.animate({
+        //
+        //     width:250,
+        //     height:250,
+        //     paddingTop:100,
+        //     alignContent:'center'
+        // },2000)
+        $div1.animate({
+            width: 250
+        },1000)
+        .animate({
+            height: 250
+        },1000)
+        .animate({
+            paddingTop: 100
+        },1000)
+        .animate({
+            alignContent: 'center'
+        },1000)
+    })
+    /*
+        2.移动到指定位置
+            移动到（500，100）处
+            移动到（100，20）处
+    */
+    $('#btn2').click(function(){
+        $div1.animate({
+            left:300,
+            top:100
+        },2000)
+    })
+    /*
+        3.移动指定的距离
+            移动距离为（100，50）
+            移动距离为（-100，-20）
+    */
+    $('#btn3').click(function(){
+        $div1.animate({
+            left:'+=100',
+            top:'+=50'
+        },2000)
+    })
+    /*
+        停止动画
+    */
+    $('#btn4').click(function(){
+        $div1.stop()
+    })
+</script>
+</body>
+</html>

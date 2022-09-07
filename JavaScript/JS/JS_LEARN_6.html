@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用工厂(函数)方法创建对象</title>
+    <script>
+
+        /*简单的创建大量的对象*/
+        // 使用工厂方法创建一个对象
+        function createPerople(name, age, sex){
+            var obj = new Object();
+
+            obj.name = name;
+            obj.age = age;
+            obj.sex = sex;
+            obj.sayName = function(){
+                alert(this.name);
+            };
+
+            return obj;
+        }
+        var obj1 = createPerople('唐僧', 26, '男');
+        var obj2 = createPerople('孙悟空', 600, '男');
+        var obj3 = createPerople('白骨精', 1000, '女');
+
+        obj1.sayName();
+        obj2.sayName();
+        obj3.sayName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影卡片练习</title>
+    <link rel="stylesheet" href="../CSS/Reset%20CSS.css">
+    <link rel="stylesheet" href="./fontImage/css/all.css">
+    <style>
+        .outer{
+            width: 240px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border-radius: 3px;
+        }
+        .img-wrapper{
+
+        }
+        .img-wrapper img{
+            width: 100%;
+            vertical-align: bottom;
+            border-radius: 3px 3px 0 0;
+        }
+        .font-wrapper .title{
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+        .font-wrapper :not(.title){
+            color: lightgray;
+        }
+        .font-wrapper .category{
+            margin-bottom: 20px;
+            padding: 0 22px;
+        }
+        .font-wrapper .description{
+            padding: 0 22px;
+        }
+        .bottom{
+            height: 40px;
+            line-height: 40px;
+            color: lightgray;
+
+            margin: 18px 0;
+            padding: 0 20px;
+            border-top: 1px solid lightgray;
+        }
+        .bottom .star{
+            float: left;
+        }
+        .bottom .star .light{
+            color: yellowgreen;
+        }
+        .bottom .logo{
+            float: right;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="img-wrapper">
+        <img src="../img/壁纸1-gigapixel-scale-2x.png" alt="wallpaper">
+    </div>
+    <div class="font-wrapper">
+        <h2 class="title">Ainmation films</h2>
+        <h3 class="category">
+            <i class="fas fa-map-marked-alt"></i>
+            Animations</h3>
+        <p class="description">Lorem Ipsum is simply dummy text of the printing & typesetting industry.</p>
+    </div>
+    <div class="bottom">
+        <ul class="star">
+            <li class="fas fa-star light"></li>
+            <li class="fas fa-star light"></li>
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star"></li>
+            <li class="fas fa-star"></li>
+        </ul>
+        <span class="fab fa-weibo logo"></span>
+    </div>
+</div>
+</body>
+</html>

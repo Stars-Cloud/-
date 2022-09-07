@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="../HTML_CSS/CSS/Reset CSS.css">
+    <style>
+        #outer{
+            width: 520px;
+            height: 333px;
+            margin:50px auto;
+            background-color: aqua;
+            padding: 10px 0;
+            /* overflow: hidden; */
+            position: relative;
+            overflow: hidden;
+        }
+        #imgList{
+            position: absolute;
+            left: -520px;
+
+        }
+        #imgList li{
+            float:left;
+            padding: 0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 20px;
+            /* 设置left值
+                    outer:W 520
+                    navDiv:W 25*5=125
+                        520-125=395/2=197.5    
+            */
+            /* left: 197px; */
+        }
+        #navDiv a{
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin: 0 5px;
+            /* 设置透明 */ 
+            opacity: 0.5;
+            /* 兼容IE8 */
+            filter:alpha(opacity=50);
+        }
+        #navDiv a:hover{
+            background-color: black;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            // setting imgList width
+            let imgList = document.getElementById("imgList");
+            // get all img in page
+            let imgArr = document.getElementsByTagName("img");
+            // setting left
+            imgList.style.width = 520 * imgArr.length + "px";
+            
+
+            // 设置导航按钮居中
+            let navDiv = document.getElementById("navDiv");
+            let outer = document.getElementById("outer");
+
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2 + "px";
+
+            let index = 0;
+            // get <a>
+            let allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            // 点击超链接 切换到相应的图片
+            for(let i=0;i<allA.length;i++){
+                // 为每一个超链接添加一个num属性，用于识别自己
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    index = this.num;
+                    imgList.style.left = -520 * index + "px";
+                    // 修改正在选中的a
+                    setA();
+
+                }
+            }
+
+            // 创建一个方法用来设置a
+            function setA(){
+                for(let i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                // 将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img style="width:500px;height:333px;" src="../HTML_CSS/img/《我的青春恋爱物语果然有问题》雪之下雪乃 由比滨结衣4k壁纸_彼岸图网.jpg" alt=""></li>
+            <li><img style="width:500px;height:333px;" src="../HTML_CSS/img/壁纸1-gigapixel-scale-2x.png" alt=""></li>
+            <li><img style="width:500px;height:333px;" src="../HTML_CSS/img/壁纸2-gigapixel-scale-2x.png" alt=""></li>
+            <li><img style="width:500px;height:333px;" src="../HTML_CSS/img/赤坂 龙之介.jpg" alt=""></li>
+            <li><img style="width:500px;height:333px;" src="../HTML_CSS/img/樱花庄的宠物女孩-gigapixel-scale-2x.png" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:void()"></a>
+            <a href="javascript:void()"></a>
+            <a href="javascript:void()"></a>
+            <a href="javascript:void()"></a>
+            <a href="javascript:void()"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  文档的加载 </title>
+    <script>
+
+        /*浏览器在加载一个页面时，是按照自上向下的顺序加载的
+          读取到一行就运行到一行
+          所以当运行script标签时，button还没有运行，所以会报错
+          可以使用onload
+        */
+
+        /*onload 事件会在整个页面加载完成之后才触发*/
+        window.onload = function(){
+            var dg = document.getElementById("btn");
+            dg.onclick = function(){
+                dg.innerHTML = "爬开";
+            };
+        };
+
+
+        /*documet.getElementsByTagName() 该方法会返回一个数组
+          可以遍历输出
+        */
+
+        /*document.getElementsByName() 该方法也会返回一个数组
+          可以遍历输出
+        */
+
+        /*innerHTML用于获取元素内部的HTML代码的
+          对于自结束标签，innerHTML没有意义
+          对于自结束标签，可以使用 .属性名 来获取内容
+                    元素.id 元素.name 元素.value
+                    class不能如此获取属性，要使用 元素.className 来获取内容*/
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+</body>
+</html>

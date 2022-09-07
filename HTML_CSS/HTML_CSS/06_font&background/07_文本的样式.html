@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本的样式</title>
+    <style>
+        div{
+            font-size:50px;
+            font-family:"微软雅黑 Light";
+        /*
+            text-decoration 设置文本修饰
+                可选值：
+                    none 什么都没有
+                    underline 下划线
+                    line-through 删除线
+                    overline 上划线
+        */
+            text-decoration:underline blue wavy;
+        }
+        .box2{
+        /*
+            white-space 设置网页如何处理空白
+                可选值：
+                    normal 正常
+                    nowrap 不换行
+                    pre 保留
+        */
+            width: 200px;
+            white-space: normal; /*不换行*/
+            overflow: hidden;
+            text-overflow:ellipsis; /* 省略号*/
+        }
+    </style>
+</head>
+<body>
+<div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur culpa dolorem eius fugiat illo libero officia perferendis, quaerat quam tempora! Eaque esse molestias quibusdam repellat. Ab culpa eveniet sit. Voluptatem.
+</div>
+<div class="box2"></div>
+</body>
+</html>

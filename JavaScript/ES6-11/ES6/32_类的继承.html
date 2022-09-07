@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的继承</title>
+</head>
+<body>
+<script type="text/javascript">
+    class Phone{
+        constructor(brand,price){
+            this.brand = brand
+            this.price = price
+        }
+
+        call(){
+            console.log('i can call')
+        }
+    }
+
+    class SmartPhone extends Phone{
+        constructor(brand,price,color,size){
+            super(brand, price);
+            this.color = color;
+            this.size = size;
+        }
+        photo(){
+            console.log('i can photo')
+        }
+        game(){
+            console.log('i can play game')
+        }
+
+        call() {
+            super.call();
+            console.log('i can video call')
+        }
+    }
+
+    const xiaomi = new SmartPhone('xiaomi',2000,'white','5.5inch')
+    // console.log(xiaomi)
+    xiaomi.call()
+</script>
+</body>
+</html>

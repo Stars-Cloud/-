@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15_迭代器</title>
+</head>
+<body>
+<script>
+    /*
+        原始具备iterator接口的数据（可用for of 遍历）
+            Array
+            Arguments
+            Set
+            Map
+            String
+            TypedArray
+            NodeList
+        工作原理:
+            1.创建一个指针对象,指向当前数据结构的起始位置
+            2.第一次调用对象的next方法,指针自动指向数据结构的第一个成员
+            3.接下来不断调用next方法,指针一直往后移动,直到指针指向最后一个成员
+            4.每调用next方法返回一个包含value和done属性的对象
+    */
+
+    const xiyou = ['唐曾','孙悟空','猪八戒','沙僧']
+
+    for(let v of xiyou){
+        console.log(v)
+    }
+
+    let iterator = xiyou[Symbol.iterator]()
+    console.log(iterator)
+    console.log(iterator.next()) // done为true时 遍历完成
+</script>
+</body>
+</html>

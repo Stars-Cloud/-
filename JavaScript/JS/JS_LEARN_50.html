@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的操作</title>
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("btn");
+            let box = document.getElementById("box");
+            btn.onclick = function(){
+                /* 
+                    我们可以通过修改元素的class属性来间接的修改样式
+                    这样一来，我们只需要修改一次，即可同时修改多个样式
+                    浏览器只需要重新渲染页面一次，性能会比较好
+                    并且这种方式，可以使表现和行为进一步的分离
+                */
+            //    box.className += " b2";
+                toggleClass(box,"b2");
+            };
+        };
+        /*
+            参数：
+                obj： 要添加的对象
+                cn：要添加的className
+        */
+        function addClass(obj, cn){
+            if(!hasClass(obj, cn)){
+                obj.className += " "+cn;
+            }
+            
+        }
+        /*
+            判断一个元素中是否含有指定的class属性值
+            如果有该class，则返回true，
+        */
+       function hasClass(obj, cn){
+            // let reg = /\bb2\b/;
+            let reg = new RegExp("\\b"+cn+"\\b");
+            return reg.test(obj.className);
+       }
+       /*
+            删除一个指定的类
+       */
+      function removeClass(obj, cn){
+          let reg = new RegExp("\\b"+cn+"\\b");
+          obj.className = obj.className.replace(reg, "");
+      }
+      /*
+            toggleClass 可以用来切换一个类
+            如果元素中具有该类，则删除
+            如果元素中没有该类，则删除
+      */
+     function toggleClass(obj, cn){
+         if(hasClass(obj,cn)){
+             removeClass(obj, cn);
+         }
+         else{
+             addClass(obj, cn);
+         }
+     }
+    </script>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .b2{
+            width: 200px;
+            height: 200px;
+            /* background-color: burlywood; */
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click</button>
+    <div id="box" class="b1"></div>
+</body>
+</html>

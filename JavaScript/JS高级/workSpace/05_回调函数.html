@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <!--
+        什么函数才是回调函数？
+            1.你定义的
+            2.你没有调用
+            3.但最终它自己执行了
+        常见的回调函数？
+            dom事件的回调函数：this是发生事件的DOM元素
+            定时器回调函数：this是Window
+
+            ajax请求回调函数
+            生命周期回调函数
+    -->
+    <script>
+        window.onload = function(){
+            let btn = document.getElementById("btn");
+            btn.onclick = function () {
+                alert(this.innerHTML);
+            };
+        /*
+            定时器
+                超时定时器
+                循环定时器
+         */
+        setTimeout(function(){
+            alert("该放学了");
+        },2000);
+        }
+    </script>
+</body>
+</html>

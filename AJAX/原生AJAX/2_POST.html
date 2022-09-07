@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post</title>
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            outline: 1px red solid;
+        }
+    </style>
+</head>
+<body>
+<div id="result"></div>
+
+<script type="text/javascript">
+    const result = document.getElementById('result')
+    result.addEventListener('mouseover',function(){
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('POST','http://127.0.0.1:8000/server')
+        // 设置请求头
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded') // data必须是这种表单格式的数据
+        // xhr.setRequestHeader("Content-Type","application/json; charset=UTF-8") // data必须是json格式的数据
+        xhr.setRequestHeader('name','Fanxintong')
+        xhr.send('a=100&b=2007c=300')
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                if(xhr.status >=200 && xhr.status <300){
+                    result.innerHTML = xhr.response
+                }else{
+                    result.innerHTML = xhr.getAllResponseHeaders()
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

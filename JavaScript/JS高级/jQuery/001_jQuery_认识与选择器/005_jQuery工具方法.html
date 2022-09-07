@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工具方法</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<!--
+    1.$.each():遍历数组或对象中的数据
+    2.$.trim():去除字符串两边的空格
+    3.$.type(obj):得到数据的类型
+    4.$.isArray(obj):判断是否是数组
+    5.$.isFunction(obj):判断是否是函数
+    6.$.parseJSON(json):解析json字符串转换为js对象/数组
+-->
+<script type="text/javascript">
+    let obj = {
+        name:"Tom",
+        setName:function(name){
+            this.name = name
+        }
+    }
+    $.each(obj, function(key, value){
+        console.log(key, value)
+    })
+    console.log($.type($))
+
+    let josn = '{"name":"Tom","age":12}'
+    console.log($.parseJSON(josn))
+
+    /*
+        JSON.parse(jsonString) json字符串 --> js对象/数组
+        JSON.stringify(jsObj/jsArr) js对象/数组 --> json字符串
+    */
+</script>
+</body>
+</html>

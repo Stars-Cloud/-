@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <script type="text/javascript">
+        var btn = document.getElementsByClassName("btn")
+        // for(var i=0,length=btn.length;i<length;i++){
+        //     btn[i].index = i
+        //     btn[i].onclick = function () {
+        //         alert((this.index)+1)
+        //     }
+        // }
+
+        // 闭包
+        for(var i=0,length=btn.length;i<length;i++){
+            (function(i){
+                btn[i].onclick = function(){
+                    alert(i+1)
+                }
+            })(i)
+        }
+    </script>
+</body>
+</html>

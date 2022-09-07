@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区别onload与ready</title>
+</head>
+<body>
+<!--
+    区别：window.onload 与 $(document).ready()
+        window.onload
+            包括页面的图片加载完成后才会回调（晚）
+            只能有一个监听回调
+        $(document).ready()
+            等同于：$(function(){})
+            页面加载完就回调（早） 不会管图片
+            可以有多个监听回调
+-->
+<img src="https://cn.bing.com/images/search?view=detailV2&ccid=pKWOdhtJ&id=F027D198192027226307F7326F0AE7CCE82FB832&thid=OIP.pKWOdhtJ7FbNqbE3KfwSMQAAAA&mediaurl=https%3a%2f%2fwww.com8.cn%2fwp-content%2fuploads%2f2020%2f11%2f20201108023309-5fa758e5be02a.jpg&exph=400&expw=400&q=%e5%8a%a8%e6%bc%ab%e5%a4%b4%e5%83%8f&simid=608017384877720923&FORM=IRPRST&ck=7DC939510C5E4A3A725675A7FA68583F&selectedIndex=0"
+     alt="动漫头像：屑魔女">
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*
+        需求：
+            1.直接打印img的宽度，观察其值
+            2.在$(function(){})中打印img的宽度
+            3.在window.onload中打印宽度
+            4.在img加载完成后打印宽度
+    */
+    console.log('direct',$('img').width())
+    window.onload = function(){
+        console.log('onload',$('img').width())
+    }
+    $(function(){
+        console.log('ready',$('img').width())
+    })
+    $('img').on('load',function(){
+        console.log('img onload',$(this).width())
+    })
+    // $(document).ready(function(){
+    //
+    // })
+</script>
+</body>
+</html>

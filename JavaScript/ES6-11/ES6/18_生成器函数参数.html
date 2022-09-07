@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18_生成器函数参数</title>
+</head>
+<body>
+<script>
+    function * gen(arg){
+        console.log(arg)
+        let one = yield 111;
+
+        console.log(one)
+        let two = yield 222;
+
+        console.log(two)
+        let three = yield 333;
+
+        console.log(three)
+    }
+    let iterator = gen('aaa')
+    console.log(iterator.next()) // 执行了第十行到第十一行,卡在了第十一行
+
+    console.log(iterator.next('bbb')) // 参数'bbb'为one的值,执行了十二行到十四行,卡在了十四行
+
+    console.log(iterator.next('ccc')) // 参数'ccc'为two的值,执行了十五行到十七行,卡在了十七行
+
+    console.log(iterator.next('ddd')) // 参数'ddd'为three的值,执行了十八行到完
+</script>
+</body>
+</html>

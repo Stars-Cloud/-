@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象的几种模式</title>
+</head>
+<body>
+<!--
+    方式一：Object构造函数模式
+        套路：先创建空Object对象，再动态添加属性/方法
+        使用场景：起始时不确定内部数据
+        问题：语句太多
+
+    方式二：对象字面量模式
+        套路：使用{}创建对象，同时指定属性/方法
+        使用场景：起始时对象内部数据是确定的
+        问题：如果创建多个对象，有重复代码
+
+    方式三：工厂模式
+        套路：通过工厂函数动态创建对象并返回
+        使用场景：需要创建多个对象
+        问题：对象没有一个具体的类型，都是Object类型
+
+    方式四：自定义构造函数模式
+        套路：自定义构造函数，通过new创建对象
+        适用场景：需要创建多个类型确定的对象
+        问题：每个对象都有相同的数据（方法相同），浪费内存
+
+    方式五：构造函数+原型的组合模式
+        套路：自定义构造函数，属性在函数中初始化，方法添加到原型上
+        适用场景：需要创建多个类型确定的对象
+-->
+<script type="text/javascript">
+    /*
+        方式三
+    */
+    function createPerson(name, age){ // 返回一个对象的函数 都可以成为 工厂函数
+        var obj = {
+            name:name,
+            age:age,
+            setName:function(name){
+                this.name = name
+            }
+        }
+        return obj
+    }
+    var per = createPerson("Tom", 19)
+    /*
+        方式四
+    */
+    function Person(name,age){
+        console.log(this)
+        this.name = name
+        this.age = age
+        console.log(this)
+        this.setName = function(name){
+            console.log(this)
+            this.name = name
+        }
+    }
+    var p1 = new Person('Tom', 12)
+    // console.log(p1 instanceof Person)
+    // Person("LI", 13)
+    p1.setName()
+    /*
+        方式五
+    */
+    function Person1(name,age) { // 在构造函数中只初始化一般属性
+        this.name = name
+        this.age = age
+    }
+    Person1.prototype.setName = function(name){
+        console.log(this)
+        this.name = name
+    }
+    p1 = new Person1("Sam",29)
+    p1.setName()
+</script>
+</body>
+</html>

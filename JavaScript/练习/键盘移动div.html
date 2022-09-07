@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘移动div</title>
+    <style>
+        /* .div1{
+            width: 1000px;
+            height: 1000px;
+            background-color: bisque;
+            position: absolute;
+        } */
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position:absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const box = document.getElementById("box");
+            let speed = 1;
+			let dir = 0;
+
+			let timer = setInterval(function(){
+                switch(dir){
+                    case 37:
+                        // alert("left");
+                        box.style.left = box.offsetLeft - speed + "px";
+                        break;
+                    case 38:
+                        // alert("top");
+                        box.style.top = box.offsetTop - speed + "px";
+                        break;
+                    case 39:
+                        // alert("right");
+                        box.style.left = box.offsetLeft + speed + "px";
+                        break;
+                    case 40:
+                        // alert("bottom");
+                        box.style.top = box.offsetTop + speed + "px";
+                        break;
+				}
+            },10);
+			
+			onkeydown = function(event){
+				event = event || window.event;
+				if(event.keyCode){
+					dir = event.keyCode;
+				}
+				
+				if(event.ctrlKey){
+					speed = 50;
+				}
+				else{
+					speed = 1;
+				}
+			};
+			
+			onkeyup = function(event){
+				event = event || window.event;
+				dir = 0;
+			}
+        };
+    </script>
+</head>
+<body>
+    <div class="div1"><div id="box"></div></div>
+</body>
+</html>

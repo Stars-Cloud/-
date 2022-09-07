@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a元素的伪类</title>
+    <style>
+         /* 
+            a元素专属伪类：
+                :link 用来表示没访问过的链接（正常的链接）
+                :visited 用来表示访问过的链接
+                    由于隐私的原因，所以visited这个伪类只能改链接的颜色
+         */
+         a:link{
+             color:red;
+         }
+         a:visited{
+             color:purple;
+         }
+         /* 
+            ：hover 用来表示鼠标移入的状态
+         */
+         a.ane:hover{
+             color:aqua;
+             font-size: 10px;
+         }
+
+         /* 
+            ：active 用来表示鼠标点击
+         */
+         a.ane:active{
+             color:chartreuse;
+             font-size: 20px;
+         }
+    </style>
+</head>
+<body>
+    <!-- 
+        超链接的状态
+            1.没有访问过的链接
+            2.访问过的链接
+     -->
+    <a href="https://www.baidu.com">Baidu</a>
+
+    <a href="https://www.bilibili.com">bilibili</a>
+
+    <a class="ane" href="https://www.agasd.com">agasd</a>
+</body>
+</html>

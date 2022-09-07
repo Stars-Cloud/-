@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01_Object.fromEntries</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+        Object.fromEntries : 二维转一维对象
+        Object.entries : 一维转二维对象
+    */
+    const result = Object.fromEntries([
+        ['name','fan'],
+        ['course','Java']
+    ])
+    console.log(result)
+
+    const m = new Map()
+    m.set('name','fan')
+    const arr = Object.entries({
+        name:'fan'
+    })
+    console.log(arr)
+</script>
+</body>
+</html>

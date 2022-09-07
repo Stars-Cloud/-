@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #bfc;
+            position: absolute;
+            left: 0%;
+            /*
+                animation:
+                    animation-name [动画名称]
+
+                    animation-duration [用来设置动画完成一个周期所需要花费的时间，单位为秒或者毫秒]
+
+                    animation-timing-function [用来设置动画播放的速度曲线]
+                        linear	动画从开始到结束的速度是相同的
+                        ease	默认值，动画以低速开始，然后加快，在结束前变慢
+                        ease-in	动画以低速开始
+                        ease-out	动画以低速结束
+                        ease-in-out	动画以低速开始，并以低速结束
+                        cubic-bezier(n, n, n, n)	使用 cubic-bezier() 函数来定义动画的播放速度，参数的取值范围为 0 到 1 之间的数值
+
+                    animation-delay [用来定义动画开始播放前的延迟时间，单位为秒或者毫秒]
+
+                    animation-iteration-count [用来定义动画播放的次数]
+                        n	使用具体数值定义动画播放的次数，默认值为 1
+                        infinite	表示动画无限次播放
+
+                    animation-direction [用来设置是否轮流反向播放动画]
+                        normal	以正常的方式播放动画
+                        reverse	以相反的方向播放动画
+                        alternate	播放动画时，奇数次（1、3、5 等）正常播放，偶数次（2、4、6 等）反向播放
+                        alternate-reverse	播放动画时，奇数次（1、3、5 等）反向播放，偶数次（2、4、6 等）正常播放
+
+                    animation-fill-mode [来设置当动画不播放时（开始播放之前或播放结束之后）动画的状态]
+                        none	不改变动画的默认行为
+                        forwards	当动画播放完成后，保持动画最后一个关键帧中的样式
+                        backwards	在 animation-delay 所指定的时间段内，应用动画第一个关键帧中的样式
+                        both	同时遵循 forwards 和 backwards 的规则
+
+                    animation-play-state; [用来设置动画是播放还是暂停]
+                        paused	暂停动画的播放
+                        running	正常播放动画
+            */
+            animation: 5s linear 1s infinite alternate move;
+        }
+        @keyframes move {
+            from{
+                left: 0%;
+            }
+            to{
+                left:calc(100% - 100px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+
+<script>
+    let bot = document.querySelector()
+</script>
+</html>

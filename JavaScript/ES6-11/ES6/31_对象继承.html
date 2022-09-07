@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31_对象继承</title>
+</head>
+<body>
+<!--
+    继承 是SmartPhone.prototype指向一个新创建的Phone.prototype
+    new 一个SmartPhone实例时，构造函数会产生一个 .prototype 对象 这个对象就是 Phone.prototype
+
+    SmartPhone.prototype = Phone.prototype
+    这么写是在堆内存中把SmartPhone.prototype的值设为了Phone.prototype的地址
+    new 一个SmartPhone实例时，在堆空间中不会产生新的Phone.prototype对象,而是指向已经存在的Phone.prototype对象
+    所以chuizi实例的prototyp的指向是phone实例的prototype对象
+
+    每一次修改构造函数的prototype的值，它prototype中的constructor的值也会改变，不再指向该构造函数
+-->
+<script type="text/javascript">
+ function Phone(brand,price){
+        this.brand = brand
+        this.price = price
+    }
+
+    Phone.prototype.call = function(){
+        console.log('i can call')
+    }
+
+    function　SmartPhone(brand,price,color,size){
+        Phone.call(this,brand,price)
+        this.color= color
+        this.size = size
+    }
+    // SmartPhone.prototype = Phone.prototype 这不是继承，这是公用，Phone的实例都可以用SmartPhone原型上的方法了
+    SmartPhone.prototype = Object.create(Phone.prototype)
+    // SmartPhone.prototype = new Phone()
+    SmartPhone.prototype.constructor = SmartPhone
+
+    SmartPhone.prototype.photo = function(){
+        console.log('i can photo')
+    }
+    SmartPhone.prototype.game = function(){
+        console.log('i can play game')
+    }
+
+    const chuizi = new SmartPhone('chizi',2499,'black','5.5inch')
+    const phone = new Phone('xiaomi','2000')
+    phone.say = function(){
+        console.log('i am xiaomi')
+    }
+    phone.say()
+    console.log(phone.photo()) // 报错
+    // console.log(chuizi)
+    console.log(Object.getPrototypeOf(SmartPhone.prototype))
+</script>
+</body>
+</html>

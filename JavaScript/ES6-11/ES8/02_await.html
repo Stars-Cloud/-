@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>await</title>
+</head>
+<body>
+<script type="text/javascript">
+    // await 要放在 async 函数中
+    const p = new Promise((resolve,reject)=>{
+        // resolve('user data')
+        reject('error')
+    })
+    async function main(){
+        try {
+            let result = await p
+            console.log(result)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    main()
+</script>
+</body>
+</html>

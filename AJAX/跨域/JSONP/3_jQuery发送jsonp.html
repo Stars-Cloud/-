@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px skyblue;
+        }
+    </style>
+</head>
+<body>
+<button>点击发送jsonp</button>
+<div id="result"></div>
+<script type="text/javascript">
+    $('button').eq(0).click(function(){
+        $.getJSON('http://127.0.0.1:8000/jquery-jsonp?callback=?',function(data){
+            $('#result').html(`
+                姓名:${data.name}<br>
+                年龄:${data.age}
+            `)
+        })
+    })
+</script>
+</body>
+</html>

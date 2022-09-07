@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景练习2</title>
+    <style>
+        a:link{
+            display: block;
+            width: 93px;
+            height: 29px;
+            background-image: url("1.png");
+        }
+        a:hover{
+            background-image: url("2.png");
+        }
+        a:active{
+            background-image: url("3.png");
+        }
+    </style>
+</head>
+<body>
+<!--
+    图片属于网页中的外部资源，外部资源都需要浏览器单独发送请求加载
+        浏览器加载外部资源时是按需加载的，用则加载，不用则不加载
+        像我们上边练习link会首先加载，而hover和active会在指定状态触发时才会加载
+        所以在第一次进入该页面时，图片会有个短暂的闪烁问题
+-->
+<!--
+    解决图片闪烁的问题：
+        可以将多个小图片统一保存到一个大图片中，然后通过调整background-position来显示相应的图片
+        这样图片会同时加载到网页在中
+        就可以有效的避免出现闪烁的问题
+        这个技术在网页中应用十分广泛，被称为CSS-Sprite， 这种图被称为雪碧图
+
+        雪碧图的使用步骤：
+            1.先确定要使用的图标
+            2.测量图标的大小
+            3.根据测量结果创建一个元素
+            4.将雪碧图设置为元素的背景图片
+            5.设置一个偏移量以显示正确的图片
+
+        雪碧图的特点：
+            一次性将多个图片加载进页面，降低请求的次数，加快访问速度，提升用户的体验
+-->
+<a href=""></a>
+</body>
+</html>

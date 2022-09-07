@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收集表单数据</title>
+<!--
+    收集表单数据:
+        若:<input type="text"/>, 则v-model收集的是value值,用户输入的就是value值.
+        若:<input type="radio"/>, 则v-model收集的是value值,且要给标签配置value值.
+        若:<input type="checkbox"/>
+            1.没有配置input的value属性,那么收集的就是checked(勾选 or 未勾选,是布尔值)
+            2.配置input的value属性:
+                1)v-model的初始值是非数组,那么收集的就是checked(勾选 or 未勾选,是布尔值)
+                2)v-model的初始值是数组,那么收集的就是value组成的数组
+        备注:v-model的三个修饰符:
+            lazy:失去焦点再收集数组
+            number:输入字符串转为有效的数字
+            trim:输入首尾空格过滤
+-->
+</head>
+<body>
+<div id="root">
+    <form @submit.prevent="demo">
+        <label for="demo">账号:</label>
+        <input type="text" id="demo" v-model.trim="account">
+        <br>
+        <label for="demo1">密码:</label>
+        <input type="password" id="demo1" v-model="password">
+        <br>
+        性别:
+        男 <input type="radio" name="gender" v-model="gender" value="male">
+        女 <input type="radio" name="gender" v-model="gender" value="female">
+        <br>
+        年龄:
+        <input type="number" v-model.number="age">
+        <br>
+        爱好:
+        学习 <input type="checkbox" v-model="hobby" value="study">
+        吃饭 <input type="checkbox" v-model="hobby" value="eat">
+        打豆豆 <input type="checkbox" v-model="hobby" value="game">
+        <br>
+        <select name="" id="" v-model="city">
+            <option value="">选择校区</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="wuhan">武汉</option>
+        </select>
+        <br>
+        其他信息:
+        <textarea v-model.lazy="otherInfo"></textarea>
+        <br>
+        <input type="checkbox" v-model="agree">阅读并接受用户协议 <a href="#">《用户协议》</a>
+        <br>
+        <button>提交</button>
+    </form>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            account:'',
+            password:'',
+            gender:'male',
+            age:'',
+            hobby:[],
+            city:'',
+            otherInfo:'',
+            agree:'',
+        },
+        methods:{
+            demo:function(){
+                console.log(JSON.stringify(this._data))
+            }
+        }
+    })
+</script>
+</body>
+</html>

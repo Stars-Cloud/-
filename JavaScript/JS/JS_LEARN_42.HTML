@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <script>
+        window.onload = function(){
+            /*
+                键盘事件：
+                    onkeydown
+                        按键被按下
+                        对于onkeydown来说如果一直按着某个按键不松手，则事件会一直触发
+                        当onkeydown连续触发时，第一次和第二次之间会间隔稍微长一点，其他的会非常快
+                    onkeyup
+                        按键被松开
+
+                    键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+            */
+           document.onkeydown = function(event){
+                /*可以通过 keyCode 来获取按键的编码
+                    通过它可以判断哪个按键被按下
+                    除了keyCode，事件对象中还提供了几个属性
+                    altKey
+                    ctrlKey
+                    shiftKey
+                    这三个用来判断alt、CTRL、shift是否被按下，按下True  否则False
+                */
+
+                /* 判断y键是否被按下
+                    if(event.keyCode === 89){
+                        console.log("y 键被按下了");
+                }
+                */
+
+               /*  判断y和ctrl是否同时被按下 
+                   if(event.keyCode === 89 && event.ctrlKey){
+                       console.log("ctrl 和 Y 都被按下");
+                   }
+                */
+            //    console.log(event.keyCode);
+
+            };
+
+            let input = document.getElementsByTagName("input")[0];
+
+            input.onkeydown = function(event){
+                event = event || window.event;
+                /* 在文本框中输入内容，是onkeydown的默认行为，可以通过 return false 取消
+
+                    使文本框中不能输入数字
+                */
+                if(event.keyCode >= 48  && event.keyCode <= 57){
+                    return false;
+                }
+
+            };
+
+        //    document.onkeyup = function(){
+        //        console.log("按键松开了");
+        //    };
+        };
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>

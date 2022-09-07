@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标滚轮事件</title>
+    <script>
+        window.onload = () => {
+            /*
+                当鼠标滚轮向下滚动时，box变长
+                当滚轮向上滚动是，box变短
+            */
+           /*
+                onmousewheel鼠标滚轮滚动的事件，会在滚轮滚动是触发
+                但是火狐不支持该属性
+
+                在火狐中需要使用 DOMMouseScroll 来绑定滚动事件
+                注意：该事件需要通过 addEventListener() 函数来绑定
+           */
+
+           const bind = (obj, eventStr, callback) => {
+            if(obj.addEventListener){
+                obj.addEventListener(eventStr,callback,false);
+            }
+            else{
+                /* 
+                    function(){
+                        callback.call(obj);
+                    }
+                    为了使this统一，直接调用callback在IE8中是浏览器调用的
+                    我们改不了，加上一个匿名函数的话，在IE8中则会是浏览器调用
+                    匿名函数。
+                */
+                eventStr = "on".join(eventStr);
+                obj.attachEvent(eventStr,function(){
+                    callback.call(obj);
+                });
+            }
+        };
+
+
+           let box = document.getElementById("box");
+           box.onmousewheel = (event) => {
+            //    alert("scroll~~");
+            /*  判断鼠标滚轮滚动的方向
+                event.wheelDelta 可以获取鼠标滚轮滚动的方向
+                向上滚：正值    向下滚：负值
+                whellDelta 在火狐中不支持
+
+                在火狐中使用 event.detail 来获取滚动的方向
+                向上滚：负值    想下滚：正值
+            */
+                if(event.wheelDelta > 0 || event.detail < 0){
+                    // alert("向上滚, box变短");
+                    box.style.height = box.clientHeight-10 +"px";
+                }
+                else{
+                    // alert("向下滚, box变长");
+                    box.style.height = box.clientHeight+10 +"px";
+                }
+
+                /*
+                    如果浏览器有滚动条，滚动滚轮，页面也会跟着动
+                    这是浏览器的默认行为，如果不希望发生，则可以取消默认行为
+
+                    但是火狐的滚轮事件必须使用addEventListener()方法绑定响应函数
+                    取消默认行为是不能使用 return false
+
+                    可以使用 event.preventDefault(); 来取消默认事件
+                    但是 IE8 不支持该方法，直接调用会报错
+                */
+
+                bind(box,"DOMMouseScroll",box.onmousewheel);
+                event.preventDefault && event.preventDefault();
+                return false;
+           }
+
+           
+
+        };
+    </script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>

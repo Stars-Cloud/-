@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09_rest参数</title>
+</head>
+<body>
+<script>
+    //ES6 引入rest参数,用于获取函数的实参,用来代替arguments
+    /*
+        rest 参数必须要放到参数最后
+    */
+    // ES5获取实参的方式
+    function date(){
+        console.log(Object.prototype.toString.call(arguments))
+        console.log(typeof (typeof arguments))
+        console.log(arguments)
+        /*arguments.forEach((value)=>{
+            console.log(value)
+        })*/
+    }
+    date('白芷','阿娇','思慧')
+
+    // rest 参数
+    function data(...args){
+        // console.log(args) // 可以使用数组的 API
+        args.forEach((e)=>{
+            console.log(e+'a')
+        })
+    }
+    data(...['阿娇','柏芝','思慧'])
+
+    function fun(a,b,c,...args){
+        console.log(Object.prototype.toString.call(args))
+        console.log(a,b,c,'@',args)
+    }
+    fun(1,2,3,4,5,5)
+</script>
+</body>
+</html>

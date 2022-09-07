@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制的类型转换</title>
+    <script>
+    // <!-- String Number Boolean -->
+    var a= 123;
+    console.log(typeof a);
+    a = a.toString();
+    console.log(typeof a);
+    // 调用方法：*.**();
+    // 调用函数：**（）;
+
+    var b = 456;
+    console.log(typeof b);
+    b = String(b);
+    console.log(typeof b);
+
+    // 其它类型转换为Number类型
+    var c = '345';
+    console.log(typeof c);
+    c = Number(c);
+    console.log(typeof c);
+    // parseInt()、parseFolat()转门用来转换字符串中含有数字的情况
+    var d = '23ps';
+    console.log(d);
+    d = parseInt(d);
+    console.log(d)
+
+    // 其它的类型转换为Boolean值
+    var a = 12;
+    console.log(typeof a);
+    a = Boolean(a);
+    console.log(a)
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

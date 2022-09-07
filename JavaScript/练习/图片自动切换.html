@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				let img = document.getElementById("img1");
+				let start = document.getElementById("start");
+				let stop = document.getElementById("stop");
+				let hyperlink = ["../img/狐仙-gigapixel-scale-2x.png","../img/壁纸1-gigapixel-scale-2x.png","../img/壁纸2-gigapixel-scale-2x.png","../img/樱花庄的宠物女孩-gigapixel-scale-2x.png","../img/椎名真白.jpg"]
+				
+				let timer = undefined;
+				let index = 0;
+				start.onclick = function(){
+					clearInterval(timer);
+					timer = setInterval(function(){
+						index = index + 1;				
+						if(index == 5){
+							index = 0;
+						}
+						img.src = hyperlink[index];	
+					},1000);
+				};
+				
+				stop.onclick = function(){
+					clearInterval(timer);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<img id="img1" src="../img/狐仙-gigapixel-scale-2x.png" >
+		<br>
+		<br>
+		<button type="button" id="start">Start</button>
+		<button type="button" id="stop">Stop</button>
+	</body>
+</html>

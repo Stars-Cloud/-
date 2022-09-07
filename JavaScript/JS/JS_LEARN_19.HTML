@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串的方法，都不会改变原字符串</title>
+    <script>
+
+        var str = 'Hello Atguigu';
+
+        /*在底层字符串是以字符数组的形式保存的：['H','e','l',......]*/
+        console.log(str.length);
+        console.log(str);
+        console.log('str.charAt() == str[0]: ',str.charAt(0)==str[0]);
+
+
+        // concat() 链接两个或多个字符串
+
+        // indexof() lastIndexof 检索一个字符串中是否含有指定内容，返回值的索引
+
+        // slice() 可以从字符串中截取指定的内容，返回截取的内容
+
+        // substring() 和slice()类似，但不能传递负值
+
+        // substr() 1.开始位置索引，2.截取的数量
+
+        // split() 可以将一个字符串（根据字符串中的一个元素）拆分为一个数组
+        str1 = 'abc,bcd,efg,hij';
+        console.log(str1.split(','));
+        console.log('typeof str.split(','): ', typeof str.split(',') );
+
+
+        // toUpperCase() toLowCase() 字符串大小写转换
+
+
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

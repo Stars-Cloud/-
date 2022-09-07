@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义遍历数据</title>
+</head>
+<body>
+<script>
+/*
+    const banji = {
+        name:'终极一班',
+        stus:[
+            'xiaoming',
+            'xiaoning',
+            'xioatian',
+            'knight'
+        ],
+        [Symbol.iterator](){
+            let index = 0;
+            let _this = this
+            return {
+                next:function(){
+                        if (index < _this.stus.length){
+                            const result = {value:_this.stus[index],done:false}
+                            index++
+                            return result
+                        }
+                        else{
+                            return {value:undefined,done:true}
+                        }
+                }
+            }
+        }
+    }
+
+    for(let v of banji){
+        console.log(v);
+    }
+*/
+
+
+    let game = {
+        exist:['PUBG','堡垒之夜','永结无间'],
+        shoot:['CS','CF','战地'],
+        'character-play':['原神','我的世界','明日之后'],
+        actor:['艾尔登法环','黑悟空','赛博朋克']
+        ,[Symbol.iterator]:function(){
+            // console.log(this)
+            let index = 0
+            return {
+                next:() => {
+                    if (index < this.actor.length){
+                        const result = {value:this.actor[index],done:false}
+                        index++
+                        return result
+                    }
+                    else{
+                        return {value:undefined,done:true}
+                    }
+
+                }
+            }
+        }
+    }
+
+    for(let value of game.shoot){
+        console.log(value)
+    }
+    // console.log(game)
+</script>
+</body>
+</html>

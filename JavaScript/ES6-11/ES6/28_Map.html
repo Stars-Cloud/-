@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+<script type="text/javascript">
+    let m = new Map();
+
+    console.log(typeof m)
+    console.log(Object.prototype.toString.call(m))
+
+    // 添加元素
+    m.set('name','Fan')
+    m.set('change',function(){
+        console.log('i can change')
+    })
+
+    let key = {
+        school: 'XiKe'
+    }
+    m.set(key,['bj','sh','sz'])
+    console.log(m)
+
+    // size
+    console.log(m.size)
+
+    // 删除
+    m.delete('name')
+    console.log(m)
+
+    // 获取
+    console.log(m.get('change'))
+    console.log(m.get(key))
+
+    // 清空
+/*
+    m.clear()
+    console.log(m)
+*/
+
+    // 遍历
+    for(let v of m){
+        console.log(v)
+    }
+</script>
+</body>
+</html>

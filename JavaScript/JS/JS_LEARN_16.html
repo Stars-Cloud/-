@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date对象(实际上是一个函数)</title>
+
+    <script>
+
+        var time = new Date();
+
+        // .getDate() return 几号
+        // .getDay() return 星期几（0-6）
+        // .getMonth() return 几月（0-11）
+        // .getFullYear() return 年份
+        // .getTime() return 当前日期对象的时间戳
+        //           时间戳：从格林威治标准时间的1970年1月1号0时0分0秒
+        //                   到当前时间所花费的毫秒数
+        //           计算机底层在保存时间是都是用的时间戳
+        // Date.now() return 当前时间的时间戳(查看程序执行时间)
+
+        function getD(){
+            Y = time.getFullYear();
+            M = time.getMonth();
+            D = time.getDate();
+            T = time.getDay()
+          
+            return Y+"-"+M+"-"+D+"-"+"星期"+T; 
+        }
+        console.log(getD());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

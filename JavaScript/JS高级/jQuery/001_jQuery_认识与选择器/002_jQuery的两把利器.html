@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>核心函数与核心对象</title>
+</head>
+<body>
+<!--
+    1.jQuery核心函数
+        简称：jQuery函数（$/jQuery）
+        jQuery库向外直接暴露的就是$/jQuery
+        引入jQuery库后，直接使用$即可
+            当函数用：$(xxx)
+            当对象用：$.xxx()
+    2.jQuery核心对象
+        简称：jQuery对象
+        得到jQuery对象：执行jQuery函数返回的就是jQuery对象
+        使用jQuery对象：$obj.xxx()
+-->
+<!--
+    1.作为一般函数调用：$(param)
+        1)参数为函数：当DOM加载完成后，执行此回调函数（相当于window.onload = function(文档加载完成的监听)）
+        2）参数为选择器字符串：查找所有匹配的标签，并将它们封装成jQuery对象
+        3）参数为DOM对象：将DOM对象封装成jQuery对象
+        4）参数为html标签字符串（用得少）：创建标签对象并封装成jQuery对象
+    2.作为对象使用：$.xxx()
+        1）$.each(obj/arr, function(key,value){})):隐式遍历数组
+        2）$.trim():去除两端的空格
+-->
+<!--
+    1.jQuery对象是一个包含所有匹配的任意多个dom元素的伪数组对象
+    2.基本行为
+        size()/length:包含的DOM元素的个数
+        [index]/get(index):得到对应位置的DOM元素
+        each():遍历包含的所有DOM元素
+        index():得到在所在兄弟元素中的下标
+-->
+<!--
+    伪数组：
+        是Object对象
+        有length属性
+        有数值下标属性
+-->
+<button>1</button><button>2</button>
+<button id="btn3">3</button><button>4</button>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<script type="text/javascript">
+    let $buttons = $('button')
+    console.log('按钮的个数：' + $buttons.size() + $buttons.length)
+
+    console.log($buttons[1].innerHTML)
+
+    $buttons.each(function(index, domEle){
+        console.log(index, domEle.innerHTML, this, this.innerHTML)
+    })
+
+    console.log($('#btn3').index())
+</script>
+</body>
+</html>

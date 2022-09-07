@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <!-- target  .className  给父元素绑定函数子元素全都可以有（根据冒泡） -->
+    <script>
+        window.onload = () =>{
+
+            let btn = document.getElementById("btn");
+            let ul = document.getElementById("ul");
+            btn.onclick = () => {
+                // alert("Adding a hyperlink.");
+                let hl = document.createElement("li");
+                hl.innerHTML = "<a href='javascript:;' class='link'>new hyperlink</a>";
+                ul.appendChild(hl);
+
+            }
+            /*  这种给每一个元素都绑定一个单击响应函数很麻烦，
+                而且在添加新元素时，新添加的新元素必须重新绑定
+            */
+            // let allA = document.getElementsByTagName("a");
+            // for(let i=0;i<allA.length;i++){
+            //     allA[i].onclick = () => {
+            //         alert("i am the clicking response function of a"+i);
+            //     }
+            // }
+
+            /*
+                我们希望，只绑定一次事件，即可应用到多个元素上，
+                即使是后来添加的新元素
+
+                可以为ul绑定一个单击响应函数，根据冒泡后代也会有其特性
+
+                事件的委派：
+                    指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素
+                    从而通过祖先元素的响应函数来处理事件
+
+                    事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序的性能。
+            */
+           ul.onclick = (event) =>{
+            
+                // alert("i am the click response function of ul.");
+                event = event || window.event;
+                /* 
+                    target
+                        event中的target表示触发事件的对象
+                */
+
+                //    如果触发事件的元素是期望的元素，则执行，负责不执行
+                if(event.target.className === "link"){
+                /*有一个隐患，class可以有多个值，当不在是一个link时，就不起作用了，可以使用正则表达式解决*/
+                    alert("i am the click response function of a.");
+                }
+           };
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn">Adding a hyperlink.</button>
+    <ul id="ul">
+        <li><a href="javascript:;" class="link">hyperlink</a></li>
+        <li><a href="javascript:;" class="link">hyperlink</a></li>
+        <li><a href="javascript:;" class="link">hyperlink</a></li>
+    </ul>
+</body>
+</html>

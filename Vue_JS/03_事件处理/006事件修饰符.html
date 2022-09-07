@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 
+        Vue中的事件修饰符：
+            1.prevent：阻止默认事件（常用）
+            2.stop：阻止事件冒泡（常用）
+            3.noce：事件只触发一次（常用）
+            4.capture：使用事件的捕获模式
+            5.self：只有event.target是当前操作的元素是才触发事件
+            6.passive：事件的默认行为立即执行，无需要等待事件回调执行完毕
+     -->
+     <!-- 
+         @scroll
+            滚动条的滚动事件/键盘的上下按键
+         @wheel
+            鼠标滚轮的滚动事件
+      -->
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <a href="http://www.xust.edu.cn" @click.prevent="skip($event)">clicking me skip</a>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                name:"西安科技大学"
+            },
+            methods:{
+                skip(e){
+                    // e.preventDefault() //阻止事件的默认行为
+                    alert("hello")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

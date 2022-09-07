@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素的样式</title>
+    <script>
+        window.onload = function(){
+            // 点击后读取box1的样式
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                /*
+                    获取元素的当前显示的样式
+                    语法： 元素.currentStyle.样式
+                    它可以用来读取当前元素正在显示的样式
+                */
+               alert(box1.currentStyle.width);
+            }
+        }
+            
+    </script>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #0aac;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn01">点我获取</button>
+    <div id="box1"></div>
+</body>
+</html>

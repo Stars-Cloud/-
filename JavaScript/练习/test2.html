@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		        /* #box{
+		            width: 100px;
+		            height: 100px;
+		            background-color: red;
+		            padding: 10px;
+		            border: 10px aqua solid;
+		        } */
+		        #info{
+		            width: 300px;
+		            height: 500px;
+					border: 10px red solid;
+		            background-color: aqua;
+		            overflow:auto;
+		        }
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var info = document.getElementById("info");
+				var input = document.getElementsByTagName("input");
+				info.onscroll = function(){
+					alert(info.scrollTop);
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h3>Welcoming login our website</h3>
+		<p id="info">
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items cnotarefully, if  that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+			Please read our website items carefully, if not that you can`t login our website.
+		</p>
+		<!-- 如果为表单项添加disabled=“disabled” 则表单项将变成不可用的状态 -->
+		<input type="checkbox" disabled="disable">I have read carefully, and accept the items.
+		<br>
+		<input type="submit" value="注册" disabled="disabled">
+	</body>
+</html>

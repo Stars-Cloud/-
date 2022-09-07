@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>京东的导航</title>
+		<!-- JavaScript 鼠标移入移出状态（onmouseover、onmouseout） -->
+		<!-- 去掉a标签在网页中的下划线 ： text-decoration:none;-->
+		<!-- 设置鼠标移入事件改变背景和字体颜色，css比较简单 元素:hover{}-->
+<!-- 		<script type="text/javascript">
+		// 改变div的背景颜色，改变字体的颜色
+			window.onload = function(){
+				let a = document.getElementsByTagName("a");
+				let dis = document.getElementById("dis");
+				let box0 = document.getElementById("box0");
+				for (let i=0;i<a.length;i++){
+					a[i].onmouseover = function(){
+						a[i].style.color = "red";
+						// dis.style.display = "inline-block";
+					}
+					a[i].onmouseout = function(){
+						a[i].style.color = "black";
+						// dis.style.display = "none";
+					}
+				}
+			}
+		</script> -->
+		
+		<link rel="stylesheet" type="text/css" href="../CSS/Reset%20CSS.css"/>
+		<style type="text/css">
+/* 	#dis{
+				display: inline-block;
+				/* width: 25rem;
+				height: 275px;
+				border: red 1px solid; 
+				margin-right: 300px;
+				margin-top: 50px; 
+			}
+			img{
+				width: 25rem;
+				height: 275px;
+			} */
+			#box0{
+				width: 25rem;
+				border: darkturquoise 1px solid;
+				margin: 0 auto;
+				padding-top: 10px;
+/*				padding-left: 10px; */
+			}
+			#box0 div{
+				/* 要让要给文字在父元素中垂直居中，只需要将父元素的line-height设置为一个和父元素height一样的值 */
+				height: 25px;
+				line-height: 25px;
+				/* 设置box0中的padding-left缩进文字会使文字前面为空（文字前面的缩进不属于a的父元素div），与原图不符合 */
+				padding-left: 20px;
+			}
+			#box0 div:last-child{
+				margin-bottom: 5px;
+			}
+			/* 改变div的背景颜色，改变字体的颜色 */	
+			#box0 div:hover{
+				background-color: #d9d9d9;
+			}
+			
+			a{
+				text-decoration:none;
+				color: black;
+			}
+			/* 改变div的背景颜色，改变字体的颜色 */	
+			a:hover{
+				color: red;
+			}
+ 			
+		</style>
+	</head>
+	<body>
+<!-- 		<div id="dis">
+			<img src="../img/赤坂%20龙之介.jpg" >
+		</div> -->
+		<div id="box0">
+			<div id="box">
+				<a class="a1" href="">家用电器</a>
+			</div>
+			<div id="box1">
+				<a class="a1" href="">手机</a> / <a href="">运营商</a href=""> / <a href="">数码</a>
+			</div>
+			<div id="box2">
+				<a class="a1" href="">电脑</a> / <a href="">办公</a>
+			</div>
+			<div id="box3">
+				<a class="a1" href="">家居</a> / <a href="">家具</a> / <a href="">家装</a> / <a href="">厨具</a>
+			</div>
+			<div id="box4">
+				<a class="a1" href="">男装</a> /	 <a href="">女装</a> / <a href="">空装</a> / <a href="">内衣</a>
+			</div>
+			<div id="box5">
+				<a class="a1" href="">美妆</a> / <a href="">个体清洁</a> / <a href="">宠物</a>
+			</div>
+			<div id="box6">
+				<a class="a1" href="">女鞋</a> /  <a href="">箱包</a> / <a href="">钟表</a> / <a href="">珠宝</a>
+			</div>
+			<div id="box7">
+				<a class="a1" href="">男鞋</a> / <a href="">运动</a> / <a href="">户外</a>
+			</div>
+			<div id="box8">
+				<a class="a1" href="">房产</a> / <a href="">汽车</a> / <a href="">汽车用品</a>
+			</div>
+			<div id="box9">
+				<a class="a1" href="">母婴</a> / <a href="">玩具乐器</a>
+			</div>
+		</div>
+	</body>
+</html>

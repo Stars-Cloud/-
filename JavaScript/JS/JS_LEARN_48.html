@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器的应用1</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: absolute;
+        }
+        .side{
+            height: 1000px;
+            border-left: 1px red solid;
+            position: absolute;
+            left:1000px;
+            top:0px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const btn = document.getElementById("btn");
+            const box = document.getElementById("box");
+            const body = document.getElementById("body");
+            const btn1 = document.getElementById("btn1");
+            let timer;
+            btn.onclick = function(){
+                move(box, "right", 1, 1);
+            }
+            btn1.onclick = function(){
+                move(box, "top", 1, 1);
+            }
+
+            function move(obj, direction, speed, time, callback){
+                clearInterval(obj.timer);
+                direction = arguments[1];
+                speed = arguments[2];
+                // 向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
+                obj.timer = setInterval(function(){
+                    let left = obj.offsetLeft;
+                    let right = obj.offsetLeft;
+                    if(direction === "right"){    
+                        right = right + speed;
+                        if(right > body.clientWidth-192){
+                            right = body.clientWidth-192;
+                        }
+                        obj.style.left = right + "px"; 
+                        if(right === body.clientWidth-192){
+                            clearInterval(obj.timer);
+                            callback || callback();
+                        }
+                    }
+                    if(direction === "left"){
+                        left = left - speed;
+                        if(left < 8){
+                            left = 8;
+                        }
+                        obj.style[direction] = left + "px";
+                        console.log(obj.style[direction]);
+                        if(left === 8){
+                            clearInterval(obj.timer);
+                            callback || callback();
+                        } 
+                    }
+                },time);
+            }
+        }
+    </script>
+</head>
+<body id="body">
+    <button id="btn1">clickleft</button>
+    <button id="btn">clickright</button>
+    <div id="box"></div>
+    <div class="side"></div>
+</body>
+</html>

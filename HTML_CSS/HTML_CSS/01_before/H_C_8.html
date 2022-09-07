@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <!-- 
+        第二种方式(内部样式表)：
+            - 将样式编写到head中的style标签里
+
+            - 更加方便对样式进行复用
+
+            问题：
+                只能对一个网页起作用，不能跨页面复用
+     -->
+
+     <!-- 
+         第三种方式(外部样式表) 最佳实践
+            - 可以将CSS样式编写到一个外部的CSS文件中
+                然后通过link标签来引入外部的css文件
+            
+            - 将样式编写到外部的css文件中，可以使用到浏览器的缓存机制，
+                从而加快网页的加载速度，提高用户的体验
+      -->
+
+      <link rel="stylesheet" href="./style.css">
+<!--      
+     <style>
+         p{
+             color: green;
+             font-size: 88px;
+         }
+     </style> -->
+</head>
+<body>
+    <!-- 
+        css
+            层叠样式表
+            网页实际上是一个多层的结构，通过css可以分别为网页的每一个层来设置样式，
+            而最终我们能看到只是网页的最上边一层
+     -->
+
+     <!-- 
+         使用css来修改元素的样式
+
+         第一种(内联样式，行内样式)：
+            - 在标签内部通过style属性来设置元素的样式
+      -->
+
+      <p>少小离家老大回，乡音无改鬓毛衰。</p>
+      <p>落霞与孤鹜齐飞，秋水共张天一色。</p>
+</body>
+</html>

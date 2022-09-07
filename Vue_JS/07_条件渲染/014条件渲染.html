@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="../../vue.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            background:aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        条件渲染：
+            1.v-if
+                写法：
+                    1）v-if = “表达式”
+                    2）v-else-if=“表达式”
+                    3）v-else=“表达式”
+                适用于：切换频率较低的场景
+                特点：不展示的DOM元素直接被移除
+                注意：v-if可以和：v-else-if、v-else一起使用，但要求结构不能被“打断”
+            2.v-show
+                写法：v-show=“表达式”
+                适用于：切换频率较高的场景
+                特点：不展示的DOM元素未被移除，仅仅是使用样式隐藏掉
+            3.备注：使用v-if时，元素可能无法获取到（从结构中移除了），而使用v-show一定可以获取到（只是页面上没有了，在结构中还在，选择器还是可以选中）
+     -->
+    <div id="root">
+        <!-- <h2 v-show="true">欢迎来到{{name}}的世界</h2> -->
+        
+        <!-- <h2 v-if="true">欢迎来到{{name1}}的世界</h2> -->
+        <h1>当前n的值为：{{n}}</h1>
+        <button @click="n++">click</button>
+        <h2 v-show="n === 1">欢迎来到{{name}}的世界</h2>
+        <h2 v-show="n === 2">欢迎来到{{name1}}的世界</h2>
+        <h2 v-show="n === 3">欢迎来到{{name2}}的世界</h2>
+        <h2 v-if="n === 4">欢迎来到{{name}}的世界</h2>
+        <h2 v-if="n === 5">欢迎来到{{name1}}的世界</h2>
+        <h2 v-if="n === 6">欢迎来到{{name2}}的世界</h2>
+        <h2 v-else-if="n>6 && n<9">欢迎来到 {{name}} 的世界</h2>
+        <h2 v-else-if="n>8">欢迎来到 我 的世界</h2>
+
+        <!-- 该方法是最麻烦的一种 -->
+    <!--<h2 v-show="true"></h2>
+        <h2 v-show="true"></h2>
+        <h2 v-show="true"></h2> -->
+        <!-- 该做法虽然可以解决繁琐的使用v-if和v-show，但破环了页面结构，多加了一个div -->
+    <!--<div v-show="true">
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+        </div> -->
+        <!-- 该做法怎可以避免破坏页面结构，但只能使用v-if -->
+        <!-- 解析页面时，template这个标签会被自动去掉 -->
+        <template v-if="true">
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+        </template>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:0,
+                name:"动漫",
+                name1:"龙珠",
+                name2:"犬夜叉",
+            }
+        })
+        
+    </script>
+</body>
+</html>

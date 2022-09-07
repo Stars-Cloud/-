@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一个重要的内置关系</title>
+</head>
+<body>
+<!--
+    1.一个重要的内置关系：VueComponent.prototype.__proto__ === Vue.prototype
+    2.为什么要有这个关系:让组件实例对象(vc)可以访问到Vue原型上的属性、方法。
+-->
+<div id="root">
+    <hello></hello>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    Vue.prototype.x = 99
+    // hello不是VueComponent的实例，相当于：const hello = function VueComponent(){}
+    // 使用new 创建的才是实例，hello就是VueComponent
+    const hello = Vue.extend({
+        template:`
+            <div>
+                <h3>Hello</h3>
+                <button @click="showThis">点我显示vc</button>
+            </div>
+        `,
+        methods:{
+            showThis:function(){
+                console.log(this)
+                console.log(this.__proto__.__proto__.x)
+            }
+        }
+    })
+    const vm = new Vue({
+        el:'#root',
+        data:{
+
+        },
+        components:{
+            hello,
+        }
+    })
+
+
+    console.log(hello.prototype.__proto__ === Vue.prototype)
+    // console.log(Vue.config
+    console.dir(Vue)
+    console.log(hello.__proto__.__proto__.x) // undefined  hello.__proto__指向 Function.prototype
+</script>
+</body>
+</html>

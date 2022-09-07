@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>几种选择器</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.2/jquery.js"></script>
+<!--<div id="div1" class="box">div1</div>-->
+<!--<div id="div2" class="box">div2</div>-->
+<!--<div id="div3">div3</div>-->
+<!--<span>Hello jQuery</span>-->
+<!--<br>-->
+<!--<ul>-->
+<!--    <li>AAA</li>-->
+<!--    <li title="hello">BBB</li>-->
+<!--    <li class="box">CCC</li>-->
+<!--    <li title="hello">DDD</li>-->
+<!--</ul>-->
+
+<!--<script type="text/javascript">-->
+<!--    $('#div1').css('background','red')-->
+
+<!--    $('div').css('background','skyblue')-->
+
+<!--    $('.box').css('color','red')-->
+
+<!--    $('div,span').css('background','yellow')-->
+
+<!--    $('div.box').css('font-size','20px')-->
+<!--</script>-->
+
+<!--
+    基本选择器；
+        $id
+        tagName
+        .class
+        selector1,selector2,selector3:并集
+        selector1selector2selector3:交集
+-->
+
+<!--
+    层次选择器：查找子元素，后代元素，兄弟元素的选择器
+        1.ancestor descendant
+            在给定的祖先元素下匹配所有的后代元素
+        2.parent>child
+            在给定的父元素下匹配所有的子元素
+        3.prev+next
+            匹配所有紧接在prev元素后的next元素
+        4.prev~siblings
+            匹配prev元素之后的所有sibling元素
+-->
+<!--<ul>-->
+<!--    <li>AAA</li>-->
+<!--    <li class="box">CCC</li>-->
+<!--    <li title="hello"><span>BBB</span></li>-->
+<!--    <li title="hello"><span>DDD</span></li>-->
+<!--    <span>EEE</span>-->
+<!--</ul>-->
+<!--<script type="text/javascript">-->
+<!--    $('ul span').css('background','yellow')// 找后代 有三个span-->
+
+<!--    $('ul>span').css('color','skyblue') // 找孩子，有一个span-->
+
+<!--    $('.box+li').css('font-size','20px')-->
+
+<!--    $('ul .box~*').css('font-height','bond')-->
+<!--</script>-->
+
+<!--
+    过滤选择器
+        在原有选择器匹配的元素中进一步进行过滤的选择器
+            :first
+            :last
+            :eq(index)
+            :not(selector)
+            :lt
+            :gt
+            :odd
+            :even
+            :hidden
+            :visible
+            [attrName]
+            [attrName=value]
+-->
+<div id="div1" class="box">div.div1.box</div>
+<div id="div2" class="box">div.div2.box</div>
+<div id="div3">div.div3</div>
+<span class="box">span.box</span>
+<br>
+<ul>
+    <li>AAA</li>
+    <li title="hello">BBB</li>
+    <li class="box">CCC</li>
+    <li title="hello">DDD</li>
+    <li title="two">BBB</li>
+    <li style="display:none">i was hidden</li>
+</ul>
+<script type="text/javascript">
+    $('div:first').css("background","red")
+    $('.box:last').css("background","red")
+    $('div:not(.box)').css('background','red')//没有class属性也可以选中
+    $('li:gt(0):lt(2)').css('background','red') // 这是一步一步执行的，先选中所有的li，再选中索引大于0，然后再剩下的当中选中索引小于2的
+    $('li:contains("BBB")').css('background','red')// 选择内容为BBB的li
+    console.log($('li:hidden').length, $('li:hidden'))//选择display：none即隐藏的li（viable）
+    $('li[title]').css('background','red')// 选择有title属性的li
+    $('li[title=hello]').css('background','red')// 选择title属性为hello的li
+
+</script>
+</body>
+</html>

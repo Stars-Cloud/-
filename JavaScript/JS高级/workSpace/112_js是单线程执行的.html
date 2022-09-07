@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js是单线程执行的</title>
+</head>
+<body>
+<!--
+    1.如何证明js执行是单线程的？
+        setTimeout()的回调函数是在主线程执行的
+        定时器回调函数只有在运行栈中的代码全部执行完后才有可能执行
+    2.为什么js要用单线程模式，而不用对线程模式？
+        Javascript的单线程与它的用途有关
+        作为浏览器的脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM
+        这决定了它只能是单线程，负责会带来很复杂的同步问题
+    3.代码的分类：
+        初始化代码
+        回调代码
+    4，js引擎执行代码的基本流程
+        先执行初始化代码：包含一些特别的代码  回调代码（异步执行）
+            设置定时器
+            绑定监听
+            放工ajax请求
+        后面在某个时刻才会执行回调代码
+-->
+<script type="text/javascript">
+    setTimeout(function(){
+        console.log('timeout 222')
+    }, 2000)
+    setTimeout(function(){
+        console.log('timeout 111')
+    }, 1000)
+    function fn(){
+        console.log('fn()')
+    }
+    fn()
+    console.log('alert before')
+    alert('-----') // 暂停当前主线程的执行，同时暂停了计时，点击确定后恢复程序的执行和计时
+    console.log('alert after')
+
+</script>
+</body>
+</html>

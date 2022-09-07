@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dotAll模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    //  dot . 元字符 除换行符以外的任意单个字符
+    // ? 禁止贪婪
+    /*
+        后边多一个？表示懒惰模式。
+        必须跟在*或者+后边用
+        如：<img src="test.jpg" width="60px" height="80px"/>
+        如果用正则匹配src中内容非懒惰模式匹配
+        src=".*"
+        匹配结果是：src="test.jpg" width="60px" height="80px"
+        意思是从="往后匹配，直到最后一个"匹配结束
+    */
+    const reg = /.*?/s
+    regularExpression
+</script>
+</body>
+</html>

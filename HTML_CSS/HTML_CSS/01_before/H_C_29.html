@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>浏览器的默认样式</title>
+	<link rel="stylesheet" href="../CSS/Reset%20CSS.css">
+	<!-- <link rel="stylesheet" href="./CSS/normalize.css"> -->
+	<!-- 
+		重置样式表：专门用来对浏览器的样式进行重置的
+			reset.css 直接去除了浏览器的默认样式
+			normalize.css 对默认样式进行了统一
+	-->
+	<style type="text/css">
+	/* 
+		默认样式：
+			通常情况，浏览器都会为元素设置一些默认样式
+			默认样式的存在会影响到页面的布局，通常情况下编写网页时必须要去除浏览器的默认样式（PC端的页面）
+		*/
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: #0acd;
+		}
+		ul{
+			list-style:none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		i am div
+	</div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

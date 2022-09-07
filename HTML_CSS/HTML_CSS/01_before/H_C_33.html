@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页的布局</title>
+    <script>
+
+    </script>
+    <style>
+        /* 设置标题 */
+        .title{
+            box-sizing: border-box;
+            width: 1000px;
+            height: 50px;
+            margin: 10px auto;
+            border: 1px red auto;
+            background-color: crimson;
+        }
+
+        header, main, footer{
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px red solid;
+        }
+
+        /* 设置头部 */
+        header{
+            height: 150px;
+            background-color: aqua;
+        }
+
+        /* 设置主体 */
+        main{
+            height: 400px;
+            margin: 10px auto;
+            /* background-color: rgb(187, 211, 211); */
+        }
+
+        /* ----------------------------------------------------------- */
+        nav, article, aside{
+            box-sizing: border-box;
+            float: left;
+            height: 100%;
+        }
+
+        /* 设置左侧的导航 */
+        nav{
+            width: 200px;
+            border-right: 1px red solid;
+            background-color: yellow;
+        }
+        /* 设置中间的内容 */
+        article{
+            /* box-sizing: border-box; 指定可见框的大小直接设置 */
+            width: 580px;
+            margin: 0 10px;
+            border-left: 1px red solid;
+            border-right: 1px red solid;
+            background-color: aquamarine;
+        }
+
+        /* -------------------------------------------------------------------------------------- */
+        .left, .center, .right{
+            height: 100%;
+            float: left;
+            background-color: chartreuse;
+        }
+        .left{
+            box-sizing: border-box;
+            width: 139px;
+            border-right: 1px red solid;
+        }
+        .center{
+            box-sizing: border-box;
+            width: 280px;
+            border-left: 1px red solid;
+            border-right: 1px red solid;
+            margin: 0 10px;
+        }
+        .right{
+            box-sizing: border-box;
+            width: 139px;
+            border-left: 1px red solid;
+        }
+        /* -------------------------------------------------------------------------------------- */
+
+        /* 设置右侧的内容 */
+        aside{
+            width: 200px;
+            border-left: 1px red solid;
+            background-color: cadetblue;
+        }
+        /* ----------------------------------------------------------- */
+
+        /* 设置底部 */
+        footer{
+            height: 150px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="title"></div>
+    <!-- 创建头部 -->
+    <header></header>
+
+    <!-- 创建网页的主体 -->
+    <main>
+        <!-- 左侧导航 -->
+        <nav></nav>
+
+        <!-- 中间内容 -->
+        <article>
+            <div class="left"></div>
+            <div class="center"></div>
+            <div class="right"></div>
+        </article>
+
+        <!-- 右边的边栏 -->
+        <aside></aside>
+    </main>
+
+    <!-- 创建网页的底部 -->
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超链接的索引问题
+           在for循环中最好使用this获取对象,编写点击函数
+    </title>
+    <script>
+        window.onload = function(){
+            var allA = document.getElementsByTagName("a");
+            alert("for循环正在执行"+i);
+            // 为每个超链接都绑定一个单击响应函数
+            for(var i=0;i<allA.length;i++){
+                /*
+                    for 循环会在页面加 载完成之后立即执行，
+                    而响应函数会在超链接点击时才执行
+                    当响应函数执行时，for循环早已执行完毕
+                */
+               alert("响应函数正在执行"+i);
+               allA[i].onclick = function(){
+                   alert(i);
+
+                   return false;
+               };
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">Delete</a></td>
+        </tr>
+        <tr>
+            <td>LingMing</td>
+            <td>lingming@baidu.com</td>
+            <td>12000</td>
+            <td><a href="deleteEmp?id=003">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="Word">name:</td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary">
+                </td>
+            </tr>
+        </table>
+        <button id="submit">Submit</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set</title>
+</head>
+<body>
+<script>
+    let s = new Set()
+    console.log(Object.prototype.toString.call(s))
+    
+    let s1 = new Set(['big','small','bad','small'])
+    console.log(s1)
+
+    // 元素的个数
+    console.log(s1.size)
+
+    // 添加新的元素
+    s1.add('happy')
+    console.log(s1)
+
+    // 删除元素
+    /*s1.delete('small')
+    console.log(s1)*/
+
+    // 查找
+    console.log(s1.has('happy'))
+
+    // 清空
+   /* s1.clear()
+    console.log(s1)
+    */
+    // for...of遍历
+    for(let value of s1){
+        console.log(value)
+    }
+</script>
+</body>
+</html>

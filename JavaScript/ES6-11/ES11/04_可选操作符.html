@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>可选操作符</title>
+</head>
+<body>
+<script type="text/javascript">
+    function main(config) {
+        // 有参数config 读取config的db 有db 读取db的host
+        // const dbHost = config && config.db && config.db.host
+        const dbHost = config?.db?.host
+    }
+    main({
+        db:{
+            host:'127.0.0.1',
+            username:'root'
+        },
+        cache:{
+            host:'127.0.0.10',
+            username:'admin'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示与隐藏</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<!--
+    显示隐藏，默认没有动画, opacity/height/width 这三个属性的改变来实现
+            传入参数来加动画效果（即传入时间）
+    1.show():(不)带动画的显示
+    2.hide():(不)带动画的隐藏
+    3.toggle():(不)带动画的切换显示/隐藏
+-->
+
+<button id="btn1">瞬间显示</button>
+<button id="btn2">慢慢显示</button>
+<button id="btn3">慢慢隐藏</button>
+<button id="btn4">显示/隐藏</button>
+<div class="div1"></div>
+
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /*
+        需求：
+            1.点击btn1，立即显示
+            2.点击btn2，慢慢显示
+            3.点击btn3，慢慢隐藏
+            4.点击btn4，显示/隐藏
+    */
+    $('#btn1').click(function(){
+        $('.div1').show()
+    })
+    $('#btn2').click(function(){
+        $('.div1').show(100)
+    })
+    $('#btn3').click(function(){
+        $('.div1').hide(100)
+    })
+    $('#btn4').click(function(){
+        $('.div1').toggle()
+    })
+</script>
+</body>
+</html>

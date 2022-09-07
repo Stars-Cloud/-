@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM查询的其它方法</title>
+    <script>
+        window.onload = function(){
+            // 获取body标签
+            var body = document.getElementsByTagName("body")[0];
+            var body1 = document.body;
+            console.log("body == body1:",body == body1);  // OutPut:true
+
+            // document.documentElement保存的是html的根标签
+            var html = document.documentElement;
+            console.log("html:",html);
+            // document.all 地表页面中所有的元素
+            var all = document.all;
+            console.log("all:",all);
+            console.log(all.length)
+
+            console.log("html == all:",html == all);
+
+            // 根据元素的class属性值查询一组元素节点对象
+            var box1 = document.getElementsByClassName("box1");
+            
+            // 虽然IE8中没有getElementByClassName()但是可以使用querySelector代替
+            /*  document.querySelector()
+                    -需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+                    -要是有多个元素符合条件，只会返回找到的第一个元素
+            非常强大的方法 document.querySelector()
+            */
+            /*  document.querySelectorAll()
+                    -满足条件的都会返回
+            */
+            var box =  document.querySelector(".box1");
+            console.log("box1:",box1.innerHTML,"",box1.length,"","box:",box.innerHTML,"",box.length);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        box
+        <div class = "box1">
+            box1
+            <div>...</div>
+        </div>
+        <p></p>
+        <div>
+            box2
+            <div>box3</div>
+        </div>
+    </div>
+</body>
+</html>

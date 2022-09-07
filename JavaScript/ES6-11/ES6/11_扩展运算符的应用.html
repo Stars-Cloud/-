@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符的应用</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    //1.数组的合并
+    const name = ['uzi','MLXG','theShy']
+    const clan = ['rng','ig','fpx']
+    // 以前的合并
+    const merge = name.concat(clan)
+    // 使用扩展运算符合并
+    const combine = [...name,...clan]
+
+    //2.数组的克隆
+    const clover = ['E','M','G']
+    const threeFlowers = [...clover]
+    console.log('clover:',clover,'threeFlowers:',threeFlowers)
+
+    //3.将伪数组转为真正的数组
+    const div = document.getElementsByTagName('div')
+    const DIV = [...div]
+    console.log('div:',Object.prototype.toString.call(div),'DIV:',Object.prototype.toString.call(DIV))
+</script>
+</body>
+</html>

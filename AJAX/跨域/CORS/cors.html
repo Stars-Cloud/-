@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cors</title>
+<!--
+    cors : Cross-Origin Resource Sharing
+    官方解决跨域问题的方法
+-->
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 1px skyblue;
+        }
+    </style>
+</head>
+<body>
+<button>点击发送请求</button>
+<div id="result"></div>
+<script type="text/javascript">
+    const btn = document.querySelector('button')
+    btn.addEventListener('click',function(){
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('GET','http://127.0.0.1:8000/cors-server')
+        xhr.send()
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status >= 200 && xhr.status < 300){
+                    console.log(xhr.response)
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

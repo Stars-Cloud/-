@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选练习</title>
+</head>
+<body>
+<form action="" method="post">
+    你爱好的运动是？<input type="checkbox" id="checkedAllBox">全选/全不选
+
+    <br>
+    <input type="checkbox" name="items" value="soccer">soccer
+    <input type="checkbox" name="items" value="basketball">basketball
+    <input type="checkbox" name="items" value="badminton">badminton
+    <input type="checkbox" name="items" value="ping-pong">ping-pong
+    <br>
+    <input type="button" id="checkedAllBtn" value="all select">
+    <input type="button" id="checkedNoBtn" value="all not select">
+    <input type="button" id="checkedRevBtn" value="oppose select">
+    <input type="button" id="sendBtn" value="submit">
+</form>
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    let $checkedAllBox = $('#checkedAllBox')
+    let $items = $(':checkbox[name=items]')
+
+    function allSelect(){
+        $('#checkedAllBtn').click(function(){
+            $items.prop('checked',true)
+            $checkedAllBox.prop('checked',true)
+        })
+
+    }
+    allSelect()
+    function allNotSelect(){
+        $('#checkedNoBtn').click(function(){
+            $items.prop('checked',false)
+            $checkedAllBox.prop('checked',false)
+        })
+
+    }
+    allNotSelect()
+
+    function opposeSelect() {
+        $('#checkedRevBtn').click(function () {
+            $items.each(function(){
+                this.checked = !this.checked
+            })
+            $checkedAllBox.prop('checked',$items.filter(':not(:checked)').length === 0)
+
+        })
+    }
+    opposeSelect()
+
+    function submit(){
+        $('#sendBtn').click(function(){
+            $items.filter(':checked').each(function(){
+                alert(this.value)
+            })
+        })
+    }
+    submit()
+
+    function stateInput(){
+        $checkedAllBox.click(function(){
+            $items.prop('checked', this.checked)
+        })
+    }
+    stateInput()
+
+    function items(){
+        $items.click(function(){
+            $checkedAllBox.prop('checked', $items.filter(':not(:checked)').length === 0)
+        })
+    }
+    items()
+</script>
+</body>
+</html>

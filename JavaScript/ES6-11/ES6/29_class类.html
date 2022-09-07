@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class类</title>
+</head>
+<body>
+<script type="text/javascript">
+/*ES5
+    function Phone(brand,price){
+        this.brand = brand
+        this.price = price
+    }
+
+    Phone.prototype.call = function(){
+        console.log('i can call')
+    }
+
+    let HuaWei = new Phone('huawei',5999)
+    HuaWei.call()
+    console.log(HuaWei)
+*/
+
+    // class
+    class Phone{
+        // 构造方法 名字不能修改
+        constructor(brand,price) {
+            this.brand = brand
+            this.price = price
+        }
+
+        // 方法必须使用该语法,不能使用ES5 的对象完整形式(call:function(){})
+        call(){
+            console.log('i can call')
+        }
+    }
+
+    let onePlus = new Phone('1+', 1999)
+    onePlus.call()
+    console.log(onePlus)
+</script>
+</body>
+</html>

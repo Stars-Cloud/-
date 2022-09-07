@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航菜单</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+        body{
+            background-color: #FFF;
+            color: #333;
+            font:12px/1.6em Helvetica,Arial,sans-serif;
+        }
+        img{
+            background-color: #EEEEEE;
+        }
+        a{
+            color: #0287CA;
+            text-decoration: none;
+        }
+        a:hover{
+            test-decoration:underline;
+        }
+        ul li {
+            list-style: none;
+        }
+        html{
+            overflow: -moz-scrollbars-vertical;
+            /*    在火狐中始终显示滚动条   */
+        }
+        #navigation ul li{
+            float: left;
+            margin-right: 14px;
+            position: relative;
+            z-index: 100;
+        }
+        #navigation ul li a {
+            display: block;
+            padding: 0 8px;
+            background: #EEE;
+            font-weight: 700
+        }
+        #navigation ul li a:hover{
+            background: none;
+            color: aquamarine;
+        }
+        #navigation ul li ul{
+            background: #88C366;
+            position: absolute;
+            width: 80px;
+            overflow: hidden;
+            display: none;
+        }
+        #navigation ul li ul li{
+            border-bottom: 1px solid #BBB;
+            text-align: left;
+            width: 100%;
+        }
+
+        /*div{*/
+        /*    margin-top: 20px;*/
+        /*}*/
+        /*div>ul>li{*/
+        /*    box-sizing: border-box;*/
+        /*    float: left;*/
+        /*    width: 104px;*/
+        /*    height: 20px;*/
+        /*    overflow: hidden;*/
+        /*    line-height: 20px;*/
+        /*    background-color: steelblue;*/
+        /*    border: 1px chartreuse solid;*/
+        /*    border-right: none;*/
+        /*    padding-left: 35px;*/
+        /*}*/
+        /*div>ul>li:last-child{*/
+        /*    border-right: 1px chartreuse solid;*/
+        /*    padding-left: 20px;*/
+        /*}*/
+        /*div>ul>li ul{*/
+        /*    padding-inline-start: 0px;*/
+        /*}*/
+        /*div>ul>li ul li{*/
+        /*    background-color: steelblue;*/
+        /*    border: 1px chartreuse solid;*/
+        /*}*/
+        /*#navigation ul li ul li{*/
+        /*    border-bottom: 1px solid #BBB;*/
+        /*    text-align: left;*/
+        /*    width: 100%;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="navigation">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li>
+            <a href="#">衬衫</a>
+            <ul>
+                <li><a href="#">短袖衬衫</a></li>
+                <li><a href="#">长袖衬衫</a></li>
+                <li><a href="#">无袖衬衫</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">卫衣</a>
+            <ul>
+                <li><a href="#">开襟卫衣</a></li>
+                <li><a href="#">套头卫衣</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">袜子</a>
+            <ul>
+                <li><a href="#">短袜</a></li>
+                <li><a href="#">长袜</a></li>
+                <li><a href="#">丝袜</a></li>
+            </ul>
+        </li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div>
+
+<script src="../../Invoke/jQuery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('#navigation>ul>li:has(ul)').hover(function(){
+        $(this).children('ul').stop().slideDown()
+    },function(){
+        $(this).children('ul').stop().slideUp()
+    })
+</script>
+</body>
+</html>

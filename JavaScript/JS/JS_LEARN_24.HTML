@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <script>
+
+        /*事件：
+                事件就是文档或浏览器窗口中发生的一些特定的交互瞬间
+                JavaScript与HTML之间的交互是通过事件实现的
+            对于Web应用来说，有下面这些代表性的事件：
+                点击某个元素、将鼠标移动至某个元素上方、按下键盘上某个键，等等
+
+        */
+
+        /*事件：就是用户和浏览器之间的交互行为*/
+
+        /*处理事件：
+                我们可以在事件对应的属性中设置一些JS代码，
+                这样当时间被事件触发时，这些代码会执行
+        */
+
+    </script>
+</head>
+<body>
+    <button id = 'btn'>I`m a button</button>
+    <!-- onmousemove = 'document.getElementById("btn").innerHTML="给爷爬开";' -->
+    <script>
+        /*可以为按钮的对应事件绑定处理函数的形式来响应事件*/
+
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            btn.innerHTML = "给 爷 爬";
+            
+        };
+        /*事件：
+                onclick：单击
+                ondbclick: 双击
+                onmousemove：鼠标移动
+        */
+    </script>
+</body>
+</html>

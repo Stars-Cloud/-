@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<!--
+    表单:
+        在现实生活中表单用于提交数据
+        在网页中也可以使用表单,网页中的表单用于将本地的数据提交给远程的服务器
+        使用form标签来创建一个表单
+-->
+<!--
+    form的属性:
+        action 表单要提交的服务器的地址
+-->
+<form action="http://127.0.0.1:8000/server">
+<!--
+    文本框
+    注意:数据要提交到服务器中,必须要为元素指定一个name
+-->
+    username:<input type="text" name="username">
+    <br>
+
+
+<!--
+    密码框
+-->
+    password:<input type="password" name="password">
+    <br>
+
+
+<!--
+    单选按钮
+        像这种选择框,必须要指定一个value属性,value属性最终会作为用户填写的值传递给服务器
+        checked 可以将单选按钮设置为默认选中
+-->
+    单选按钮:<input type="radio" name="selectOne" value="boy" checked> <input type="radio" name="selectOne" value="girl">
+    <br>
+
+
+<!--
+    多选框
+-->
+    多选框:
+    <input type="checkbox" name="selectLot" value="好">
+    <input type="checkbox" name="selectLot" value="一般">
+    <input type="checkbox" name="selectLot" value="差">
+    <br>
+
+
+<!--
+    下拉列表
+        select 属性设置该值为默认选中的值
+-->
+    下拉列表:
+    <select name="options" id="">
+        <option value="西安" name="location">西安</option>
+        <option value="上海" name="location">上海</option>
+        <option value="长沙" name="location">长沙</option>
+    </select>
+    <br>
+
+
+<!--    提交按钮-->
+    <input type="submit" value="哈哈">
+</form>
+</body>
+</html>

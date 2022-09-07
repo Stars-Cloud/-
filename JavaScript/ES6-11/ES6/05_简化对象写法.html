@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简化对象写法</title>
+</head>
+<body>
+<script>
+    //ES6 允许在大括号里面,直接写入变量和函数,作为对象的属性和方法
+    // 这样的书写更加简洁
+    let name = "Fan"
+    let change = function(){
+        console.log('i am you father')
+    }
+
+    const school = {
+        name,
+        change,
+        improve(){
+            console.log('方法的写法也简化了')
+        }
+    }
+
+    console.log(school)
+</script>
+</body>
+</html>
